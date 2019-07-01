@@ -34,7 +34,7 @@ class SearchSpyViewController: UIViewController, SpyDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let animation = Animation.named("Animation5", bundle: Bundle.main)
+        let animation = Animation.named("SpyBackground", bundle: Bundle.main)
         backgroundAnimationView.animation = animation
         backgroundAnimationView.loopMode = .loop
         backgroundAnimationView.contentMode = .scaleAspectFit
