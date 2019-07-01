@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		010E42BE22C9375D00AEB5D4 /* xflame.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 010E42BD22C9375700AEB5D4 /* xflame.mp4 */; };
+		01820E3720D2008A0079063C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E3620D2008A0079063C /* AppDelegate.swift */; };
+		01820E3920D2008A0079063C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E3820D2008A0079063C /* ViewController.swift */; };
+		01820E3C20D2008A0079063C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01820E3A20D2008A0079063C /* Main.storyboard */; };
+		01820E3E20D2008C0079063C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01820E3D20D2008C0079063C /* Assets.xcassets */; };
+		01820E4120D2008C0079063C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01820E3F20D2008C0079063C /* LaunchScreen.storyboard */; };
+		01820E4920D2084B0079063C /* BrowserContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E4820D2084B0079063C /* BrowserContainerController.swift */; };
+		01820E4C20D208830079063C /* CacheBrowserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01820E4A20D208830079063C /* CacheBrowserController.xib */; };
+		01820E4D20D208830079063C /* CacheBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E4B20D208830079063C /* CacheBrowserController.swift */; };
+		01820E4F20D209D40079063C /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E4E20D209D40079063C /* HtmlParser.swift */; };
+		01820E5120D214B90079063C /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E5020D214B90079063C /* UIViewExtension.swift */; };
+		01820E5320D21BFF0079063C /* SearchPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E5220D21BFF0079063C /* SearchPopupController.swift */; };
+		01B310A822C957CC0092F110 /* voices.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01B310A622C957CC0092F110 /* voices.mp3 */; };
+		01B310A922C957CC0092F110 /* powerup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01B310A722C957CC0092F110 /* powerup.mp3 */; };
+		01B310AB22C958790092F110 /* SearchSpyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B310AA22C958790092F110 /* SearchSpyViewController.swift */; };
+		01B310AE22C958B00092F110 /* XBrowser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01B310AD22C958B00092F110 /* XBrowser.storyboard */; };
+		B2FCEC39AF9E37F5DBB48A33 /* Pods_Morpheus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3ECC176FF1F37DBC586ACA /* Pods_Morpheus.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		010E42BD22C9375700AEB5D4 /* xflame.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = xflame.mp4; sourceTree = "<group>"; };
+		01820E3320D2008A0079063C /* Morpheus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morpheus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01820E3620D2008A0079063C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		01820E3820D2008A0079063C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		01820E3B20D2008A0079063C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		01820E3D20D2008C0079063C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		01820E4020D2008C0079063C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		01820E4220D2008C0079063C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01820E4820D2084B0079063C /* BrowserContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserContainerController.swift; sourceTree = "<group>"; };
+		01820E4A20D208830079063C /* CacheBrowserController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CacheBrowserController.xib; sourceTree = "<group>"; };
+		01820E4B20D208830079063C /* CacheBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheBrowserController.swift; sourceTree = "<group>"; };
+		01820E4E20D209D40079063C /* HtmlParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlParser.swift; sourceTree = "<group>"; };
+		01820E5020D214B90079063C /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		01820E5220D21BFF0079063C /* SearchPopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopupController.swift; sourceTree = "<group>"; };
+		01B310A622C957CC0092F110 /* voices.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voices.mp3; sourceTree = "<group>"; };
+		01B310A722C957CC0092F110 /* powerup.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = powerup.mp3; sourceTree = "<group>"; };
+		01B310AA22C958790092F110 /* SearchSpyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSpyViewController.swift; sourceTree = "<group>"; };
+		01B310AD22C958B00092F110 /* XBrowser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XBrowser.storyboard; sourceTree = "<group>"; };
+		2A11251EB300E3BAB5D945F3 /* Pods-TacticalNuclearPenguin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TacticalNuclearPenguin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TacticalNuclearPenguin/Pods-TacticalNuclearPenguin.debug.xcconfig"; sourceTree = "<group>"; };
+		34813F4B51EDD7F055C31A27 /* Pods-TacticalNuclearPenguin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TacticalNuclearPenguin.release.xcconfig"; path = "Pods/Target Support Files/Pods-TacticalNuclearPenguin/Pods-TacticalNuclearPenguin.release.xcconfig"; sourceTree = "<group>"; };
+		4D3ECC176FF1F37DBC586ACA /* Pods_Morpheus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Morpheus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9EB9312D54957F791833145 /* Pods-Morpheus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Morpheus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Morpheus/Pods-Morpheus.debug.xcconfig"; sourceTree = "<group>"; };
+		FEDB626F8716855D02111234 /* Pods-Morpheus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Morpheus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Morpheus/Pods-Morpheus.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01820E3020D2008A0079063C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2FCEC39AF9E37F5DBB48A33 /* Pods_Morpheus.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		010E42BC22C936CB00AEB5D4 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				010E42BD22C9375700AEB5D4 /* xflame.mp4 */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		01820E2A20D2008A0079063C = {
+			isa = PBXGroup;
+			children = (
+				01820E3520D2008A0079063C /* Morpheus */,
+				01820E3420D2008A0079063C /* Products */,
+				72EE27A638E7295871068315 /* Pods */,
+				9CD6A554FEBA30490A7712DB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		01820E3420D2008A0079063C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01820E3320D2008A0079063C /* Morpheus.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01820E3520D2008A0079063C /* Morpheus */ = {
+			isa = PBXGroup;
+			children = (
+				01B310A222C954FC0092F110 /* Browser */,
+				010E42BC22C936CB00AEB5D4 /* Animations */,
+				01B310A522C957980092F110 /* SoundEffects */,
+				01B310AC22C9589D0092F110 /* SearchSpy */,
+				01820E3620D2008A0079063C /* AppDelegate.swift */,
+				01820E3820D2008A0079063C /* ViewController.swift */,
+				01820E3A20D2008A0079063C /* Main.storyboard */,
+				01820E3D20D2008C0079063C /* Assets.xcassets */,
+				01820E3F20D2008C0079063C /* LaunchScreen.storyboard */,
+				01820E4220D2008C0079063C /* Info.plist */,
+				01820E4820D2084B0079063C /* BrowserContainerController.swift */,
+				01820E4E20D209D40079063C /* HtmlParser.swift */,
+				01820E5020D214B90079063C /* UIViewExtension.swift */,
+				01820E5220D21BFF0079063C /* SearchPopupController.swift */,
+			);
+			path = Morpheus;
+			sourceTree = "<group>";
+		};
+		01B310A222C954FC0092F110 /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				01820E4B20D208830079063C /* CacheBrowserController.swift */,
+				01820E4A20D208830079063C /* CacheBrowserController.xib */,
+			);
+			path = Browser;
+			sourceTree = "<group>";
+		};
+		01B310A522C957980092F110 /* SoundEffects */ = {
+			isa = PBXGroup;
+			children = (
+				01B310A722C957CC0092F110 /* powerup.mp3 */,
+				01B310A622C957CC0092F110 /* voices.mp3 */,
+			);
+			path = SoundEffects;
+			sourceTree = "<group>";
+		};
+		01B310AC22C9589D0092F110 /* SearchSpy */ = {
+			isa = PBXGroup;
+			children = (
+				01B310AD22C958B00092F110 /* XBrowser.storyboard */,
+				01B310AA22C958790092F110 /* SearchSpyViewController.swift */,
+			);
+			path = SearchSpy;
+			sourceTree = "<group>";
+		};
+		72EE27A638E7295871068315 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2A11251EB300E3BAB5D945F3 /* Pods-TacticalNuclearPenguin.debug.xcconfig */,
+				34813F4B51EDD7F055C31A27 /* Pods-TacticalNuclearPenguin.release.xcconfig */,
+				A9EB9312D54957F791833145 /* Pods-Morpheus.debug.xcconfig */,
+				FEDB626F8716855D02111234 /* Pods-Morpheus.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9CD6A554FEBA30490A7712DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D3ECC176FF1F37DBC586ACA /* Pods_Morpheus.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01820E3220D2008A0079063C /* Morpheus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01820E4520D2008C0079063C /* Build configuration list for PBXNativeTarget "Morpheus" */;
+			buildPhases = (
+				7AEFA253668D281ABFBDD3B0 /* [CP] Check Pods Manifest.lock */,
+				01820E2F20D2008A0079063C /* Sources */,
+				01820E3020D2008A0079063C /* Frameworks */,
+				01820E3120D2008A0079063C /* Resources */,
+				F97534D65B3A04A4F107F304 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Morpheus;
+			productName = TacticalNuclearPenguin;
+			productReference = 01820E3320D2008A0079063C /* Morpheus.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01820E2B20D2008A0079063C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Dennis John";
+				TargetAttributes = {
+					01820E3220D2008A0079063C = {
+						CreatedOnToolsVersion = 9.4;
+					};
+				};
+			};
+			buildConfigurationList = 01820E2E20D2008A0079063C /* Build configuration list for PBXProject "Morpheus" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 01820E2A20D2008A0079063C;
+			productRefGroup = 01820E3420D2008A0079063C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01820E3220D2008A0079063C /* Morpheus */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		01820E3120D2008A0079063C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01820E4120D2008C0079063C /* LaunchScreen.storyboard in Resources */,
+				01B310A922C957CC0092F110 /* powerup.mp3 in Resources */,
+				01B310A822C957CC0092F110 /* voices.mp3 in Resources */,
+				010E42BE22C9375D00AEB5D4 /* xflame.mp4 in Resources */,
+				01820E3E20D2008C0079063C /* Assets.xcassets in Resources */,
+				01820E3C20D2008A0079063C /* Main.storyboard in Resources */,
+				01B310AE22C958B00092F110 /* XBrowser.storyboard in Resources */,
+				01820E4C20D208830079063C /* CacheBrowserController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7AEFA253668D281ABFBDD3B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Morpheus-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F97534D65B3A04A4F107F304 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Morpheus/Pods-Morpheus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Morpheus/Pods-Morpheus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Morpheus/Pods-Morpheus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		01820E2F20D2008A0079063C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01820E5120D214B90079063C /* UIViewExtension.swift in Sources */,
+				01B310AB22C958790092F110 /* SearchSpyViewController.swift in Sources */,
+				01820E4920D2084B0079063C /* BrowserContainerController.swift in Sources */,
+				01820E5320D21BFF0079063C /* SearchPopupController.swift in Sources */,
+				01820E3920D2008A0079063C /* ViewController.swift in Sources */,
+				01820E3720D2008A0079063C /* AppDelegate.swift in Sources */,
+				01820E4F20D209D40079063C /* HtmlParser.swift in Sources */,
+				01820E4D20D208830079063C /* CacheBrowserController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		01820E3A20D2008A0079063C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01820E3B20D2008A0079063C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		01820E3F20D2008C0079063C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01820E4020D2008C0079063C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		01820E4320D2008C0079063C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		01820E4420D2008C0079063C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		01820E4620D2008C0079063C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9EB9312D54957F791833145 /* Pods-Morpheus.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KYK9XHQCM4;
+				INFOPLIST_FILE = Morpheus/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dennis.personal.test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		01820E4720D2008C0079063C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEDB626F8716855D02111234 /* Pods-Morpheus.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KYK9XHQCM4;
+				INFOPLIST_FILE = Morpheus/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dennis.personal.test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01820E2E20D2008A0079063C /* Build configuration list for PBXProject "Morpheus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01820E4320D2008C0079063C /* Debug */,
+				01820E4420D2008C0079063C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01820E4520D2008C0079063C /* Build configuration list for PBXNativeTarget "Morpheus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01820E4620D2008C0079063C /* Debug */,
+				01820E4720D2008C0079063C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01820E2B20D2008A0079063C /* Project object */;
+}
