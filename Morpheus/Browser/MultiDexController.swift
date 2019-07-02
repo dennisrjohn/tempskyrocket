@@ -56,6 +56,8 @@ class MultiDexController: UIViewController, UICollectionViewDelegate, UICollecti
         cell.titleLabel.text = engine.name
         if (screenShots.keys.contains(indexPath.row)) {
             cell.setImageIfNecessary(screenShots[indexPath.row]!)
+        } else {
+            cell.image.image = nil
         }
         return cell
     }
@@ -98,8 +100,8 @@ class CellView:UIView {
         backgroundColor = UIColor.clear
         superview?.layer.shadowColor = UIColor.black.cgColor
         superview?.layer.shadowOffset = CGSize(width: 9, height: 10)
-        superview?.layer.shadowOpacity = 0.7
-        superview?.layer.shadowRadius = 4.0
+        superview?.layer.shadowOpacity = 0.5
+        superview?.layer.shadowRadius = 2.0
         superview?.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 10).cgPath
         superview?.layer.shouldRasterize = true
         superview?.layer.rasterizationScale = UIScreen.main.scale
@@ -108,7 +110,7 @@ class CellView:UIView {
         let borderView = UIView()
         borderView.frame = bounds
         borderView.layer.cornerRadius = radius
-        borderView.layer.borderColor = UIColor.black.cgColor
+        borderView.layer.borderColor = UIColor.gray.cgColor
         borderView.layer.borderWidth = 1.0
         borderView.layer.masksToBounds = true
         addSubview(borderView)

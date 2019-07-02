@@ -83,7 +83,7 @@ class BrowserContainerController: UIViewController {
     
     var screenshotQueue:[Int] = []
     var queueRunning = false
-    
+    var screenShotTimer:Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +107,9 @@ class BrowserContainerController: UIViewController {
             webViews.append(newBrowser)
         }
         resultsScrollView.layoutSubviews()
+        if #available(iOS 11, *) {
+            resultsScrollView.contentInsetAdjustmentBehavior = .never
+        }
         
         
         let containerFrame = view.frame
@@ -125,11 +128,16 @@ class BrowserContainerController: UIViewController {
     
     
     func showResults(index:Int) {
+        let containerFrame = view.frame
+        resultsScrollView.frame = CGRect(x: 0.0, y: 0.0, width: containerFrame.width, height: containerFrame.height - toolBarHeight)
         resultsScrollView.setContentOffset(CGPoint(x: (view.bounds.width * CGFloat(index)), y: 0), animated: false)
         multiDexContainerView.isHidden = true
     }
     
     func showMultiDex() {
+        let containerFrame = view.frame
+        let safeY = UIApplication.shared.keyWindow!.safeAreaInsets.top
+        resultsScrollView.frame = CGRect(x: 0.0, y: containerFrame.height, width: containerFrame.width, height: containerFrame.height - toolBarHeight)
         multiDexContainerView.isHidden = false
     }
     
@@ -177,9 +185,9 @@ class BrowserContainerController: UIViewController {
     }
     
     @IBAction func buttonTwoTapped(_ sender: Any) {
-//        for i in 0...webViews.count - 1 {
-//            queueScreenshot(index: i)
-//        }
+        for i in 0...webViews.count - 1 {
+            queueScreenshot(index: i)
+        }
         showMultiDex()
     }
     
@@ -196,6 +204,8 @@ class BrowserContainerController: UIViewController {
             if verifyUrl(urlString: formattedURLString(string: searchTerm!)) {
                 pageTitles = [String: String]()
                 searchResults = [SearchItem(url: formattedURLString(string: searchTerm!))]
+                resultsScrollView.isScrollEnabled = false
+                showResults(index: 0)
             } else {
                 searchResults = []
                 pageTitles = [String: String]()
@@ -209,6 +219,7 @@ class BrowserContainerController: UIViewController {
                     multiDexController?.screenShots = [:]
                     multiDexController?.engines = engines
                     
+                    resultsScrollView.isScrollEnabled = true
                     showMultiDex()
                 }
             }
@@ -452,6 +463,9 @@ extension BrowserContainerController: SpyDelegate {
 
 extension BrowserContainerController: ScreenshotDelegate {
     func queueScreenshot(index:Int) {
+        if !resultsScrollView.isScrollEnabled {
+            return
+        }
         if (!screenshotQueue.contains(index)) {
             screenshotQueue.append(index)
             print(screenshotQueue)
@@ -464,19 +478,17 @@ extension BrowserContainerController: ScreenshotDelegate {
     
     func processNextScreenshot() {
         if (screenshotQueue.count > 0){
-            let nextScreen = screenshotQueue[0]
-            print("shotting \(nextScreen)")
+            let nextScreen = screenshotQueue.removeFirst()
             resultsScrollView.setContentOffset(CGPoint(x: (view.bounds.width * CGFloat(nextScreen)), y: 0), animated: false)
-            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: {[weak self] outerTimer in
+            screenShotTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false, block: {[weak self] outerTimer in
                 if let screenshot = self?.resultsScrollView.screenShot {
-                    self?.multiDexController?.replaceImageAtIndex(index: nextScreen, image: (date: Date(), image: screenshot))
-                    Timer.scheduledTimer(withTimeInterval: 0.1
-                        , repeats: false, block: {[weak self] timer in
-                        if self?.screenshotQueue.count ?? 0 > 0 {
-                            self?.screenshotQueue.remove(at: 0)
-                        }
-                        self?.processNextScreenshot()
-                    })
+                    if (self?.queueRunning ?? false){
+                        self?.multiDexController?.replaceImageAtIndex(index: nextScreen, image: (date: Date(), image: screenshot))
+                        self?.screenShotTimer = Timer.scheduledTimer(withTimeInterval: 0.1
+                            , repeats: false, block: {[weak self] timer in
+                            self?.processNextScreenshot()
+                        })
+                    }
                 }
             })
         } else {
@@ -488,7 +500,9 @@ extension BrowserContainerController: ScreenshotDelegate {
 extension BrowserContainerController:EngineDelegate {
     func fullscreenEngine(at index:Int, screenshotBounds: CGRect, screenshotImage: UIImage?) {
         showResults(index: index)
-        
+        screenShotTimer?.invalidate()
+        screenshotQueue = []
+        queueRunning = false
     }
 }
 
