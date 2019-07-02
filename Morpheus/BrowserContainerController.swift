@@ -37,18 +37,23 @@ protocol NavBarVisibilityDelegate {
     func showProgress(progress:Float)
 }
 
+protocol EngineDelegate {
+    func fullscreenEngine(at index:Int, screenshotBounds:CGRect, screenshotImage:UIImage?)
+}
+
 class BrowserContainerController: UIViewController {
     
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var resultsScrollView: UIScrollView!
     @IBOutlet weak var toolView: UIView!
+    @IBOutlet weak var multiDexContainerView: UIView!
     
-    @IBOutlet weak var tollViewContainerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var toolViewContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var magicButton: UIButton!
     
     var indexBrowser = CacheBrowserController();
+    var multiDexController:MultiDexController?
     
     var searchResults = [SearchItem]()
-    var browserControllers = [CacheBrowserController]()
     var pageTitles = [String: String]()
     
     var searchTerm:String?
@@ -59,8 +64,6 @@ class BrowserContainerController: UIViewController {
     var navHidden = false
     var barsHidden:Bool = false
     
-//    var navBarController:NavBarControllerBase?
-    
     var engines = [(name: "Google", searchURL: "https://www.google.com/search?q=%%searchTerm%%"),
                    (name: "Amazon", searchURL: "https://www.amazon.com/s?k=%%searchTerm%%"),
                    (name: "Bing Image Search", searchURL: "https://www.bing.com/images/search?q=%%searchTerm%%"),
@@ -70,8 +73,17 @@ class BrowserContainerController: UIViewController {
     
     
     var audioPlayer: AVAudioPlayer?
-    
     var longPressTimer:Timer?
+    
+    var toolBarHeight:CGFloat {
+        get {
+            return 100 + UIApplication.shared.keyWindow!.safeAreaInsets.bottom
+        }
+    }
+    
+    var screenshotQueue:[Int] = []
+    var queueRunning = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,37 +91,46 @@ class BrowserContainerController: UIViewController {
         toolView.addBorders(edges: [.top], color: UIColor.lightGray)
         try? VideoBackground.shared.play(view: toolView, videoName: "xflame", videoType: "mp4")
         
-        tollViewContainerHeightConstraint.constant = 100 + UIApplication.shared.keyWindow!.safeAreaInsets.bottom
-//        let topInset = UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0
-//        locationField.delegate = self
-//        locationField.barTintColor = UIColor.whiteColor()
-//        locationField.layer.borderWidth = 1;
-//        locationField.layer.borderColor = UIColor.whiteColor().CGColor;
-//        let textFieldInsideSearchBar = locationField.valueForKey("searchField") as? UITextField
-//
-//        textFieldInsideSearchBar?.backgroundColor = UIColor(red: 0.92, green: 0.92, blue: 0.92, alpha: 1.0)
-//        locationField.text = searchTerm
+        toolViewContainerHeightConstraint.constant = toolBarHeight
         
-        scrollView.delegate = self
+        resultsScrollView.delegate = self
         
         indexBrowser.view.alpha = 0.0
-        view.insertSubview(indexBrowser.view, at: 0)//I'm really not sure why, but this allows the screen to go fullscreen on app start.
         
-        for _ in engines {
+        for (index, _) in engines.enumerated() {
             let newBrowser = CacheBrowserController()
+            newBrowser.engineIndex = index
             newBrowser.visibilityDelegate = self
             newBrowser.delegate = self
-            browserControllers.append(newBrowser)
-            scrollView.addSubview(newBrowser.view)
+            newBrowser.screenShotDelegate = self
+            resultsScrollView.addSubview(newBrowser.view)
             webViews.append(newBrowser)
         }
-        scrollView.layoutSubviews()
+        resultsScrollView.layoutSubviews()
+        
+        
+        let containerFrame = view.frame
+        let safeY = UIApplication.shared.keyWindow!.safeAreaInsets.top
+        resultsScrollView.frame = CGRect(x: 0.0, y: 0.0, width: containerFrame.width, height: containerFrame.height - toolBarHeight)
+        multiDexContainerView.frame = CGRect(x: 0.0, y: safeY, width: containerFrame.width, height: containerFrame.height - toolBarHeight - safeY)
         
         addGestureRecognizers()
         
-        showSearch()
-//        loadNavBar()
+        showMultiDex()
         
+        showSearch()
+        
+    }
+    
+    
+    
+    func showResults(index:Int) {
+        resultsScrollView.setContentOffset(CGPoint(x: (view.bounds.width * CGFloat(index)), y: 0), animated: false)
+        multiDexContainerView.isHidden = true
+    }
+    
+    func showMultiDex() {
+        multiDexContainerView.isHidden = false
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -118,20 +139,6 @@ class BrowserContainerController: UIViewController {
     
     
     func addGestureRecognizers() {
-//        let leftRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(penguinSwiped))
-//        leftRecognizer.direction = .left
-//        penguinButton.addGestureRecognizer(leftRecognizer)
-//        let rightRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(penguinSwiped))
-//        rightRecognizer.direction = .right
-//        penguinButton.addGestureRecognizer(rightRecognizer)
-//        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(penguinTapped))
-//        tapRecognizer.numberOfTapsRequired = 1
-//        penguinButton.addGestureRecognizer(tapRecognizer)
-//        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(penguinDoubleTapped))
-//        doubleTapRecognizer.numberOfTapsRequired = 2
-//        penguinButton.addGestureRecognizer(doubleTapRecognizer)
-//        tapRecognizer.require(toFail: doubleTapRecognizer)
-        
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(magicButtonTapped))
         tapRecognizer.numberOfTapsRequired = 1
         magicButton.addGestureRecognizer(tapRecognizer)
@@ -157,26 +164,30 @@ class BrowserContainerController: UIViewController {
     }
     @objc func magicButtonTapped(recognizer: UITapGestureRecognizer) {
         if (currentViewingIndex < searchResults.count - 1){
-            scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x + view.bounds.width, y: 0), animated: true)
+            resultsScrollView.setContentOffset(CGPoint(x: resultsScrollView.contentOffset.x + view.bounds.width, y: 0), animated: true)
         }
     }
     @objc func magicButtonDoubleTapped(recognizer: UITapGestureRecognizer) {
         if (currentViewingIndex > 0) {
-            scrollView.setContentOffset(CGPoint(x: max(scrollView.contentOffset.x - view.bounds.width, 0), y: 0), animated: true)
+            resultsScrollView.setContentOffset(CGPoint(x: max(resultsScrollView.contentOffset.x - view.bounds.width, 0), y: 0), animated: true)
         }
     }
     
-//    func loadNavBar() {
-//        navBarController = DefaultNavBarController()
-//        navBarController?.delegate = self
-//        view.addSubview(navBarController!.view)
-//        positionNavBar()
-//    }
-//
-//    func positionNavBar() {
-//        navBarController?.view.frame = CGRect(x: 0, y: UIScreen.mainScreen().bounds.size.height - navBarController!.barHeight, width: UIScreen.mainScreen().bounds.size.width, height: navBarController!.barHeight)
-//
-//    }
+    @IBAction func buttonOneTapped(_ sender: Any) {
+    }
+    
+    @IBAction func buttonTwoTapped(_ sender: Any) {
+//        for i in 0...webViews.count - 1 {
+//            queueScreenshot(index: i)
+//        }
+        showMultiDex()
+    }
+    
+    @IBAction func buttonThreeTapped(_ sender: Any) {
+    }
+    @IBAction func buttonFourTapped(_ sender: Any) {
+    }
+    
     
     func processSearch() {
         currentLoadingIndex = 0
@@ -194,14 +205,12 @@ class BrowserContainerController: UIViewController {
                         let replacedURL = engine.searchURL.replacingOccurrences(of: "%%searchTerm%%", with: escapedSearchTerm)
                         searchResults.append(SearchItem(url: replacedURL))
                     }
+                    
+                    multiDexController?.screenShots = [:]
+                    multiDexController?.engines = engines
+                    
+                    showMultiDex()
                 }
-                
-                //                HtmlParser.getGoogleSearchPage(searchTerm: escapedSearchTerm!, complete: searchComplete)
-                //                let searchURL = URL(string: "https://www.google.com/search?client=safari&rls=en&q=pizza&ie=UTF-8&oe=UTF-8")
-                //                indexBrowser.url = searchURL
-                //                indexBrowser.view.layoutSubviews()
-                
-                
             }
             
         }
@@ -211,25 +220,26 @@ class BrowserContainerController: UIViewController {
         }
     }
     
-//    func searchComplete(results:[String]) {
-//        for result in results {
-//            let newItem = SearchItem(url: result)
-//            searchResults.append(newItem)
-//        }
-//
-//        showURLS()
-//    }
-    
     override func viewWillLayoutSubviews() {
         var offset:CGFloat = 0.0
         
         let screenWidth = UIScreen.main.bounds.size.width
         
-        for controller in browserControllers {
-            controller.view.frame = CGRect(x: offset, y: 0, width: screenWidth, height: scrollView.frame.size.height)
+        for controller in webViews {
+            controller.view.frame = CGRect(x: offset, y: 0, width: screenWidth, height: resultsScrollView.frame.size.height)
             offset += screenWidth
         }
-        scrollView.contentSize = CGSize(width: CGFloat(browserControllers.count) * screenWidth, height: scrollView.frame.size.height)
+        resultsScrollView.contentSize = CGSize(width: CGFloat(webViews.count) * screenWidth, height: resultsScrollView.frame.size.height)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "multidexSegue" {
+            if let childVC = segue.destination as? MultiDexController {
+                //Some property on ChildVC that needs to be set
+                childVC.engineDelegate = self
+                multiDexController = childVC
+            }
+        }
     }
     
     func verifyUrl(urlString: String) -> Bool {
@@ -262,7 +272,7 @@ class BrowserContainerController: UIViewController {
     func showURLS() {
         
         clearCurrentResults()
-        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        resultsScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         
         for (index, result) in searchResults.enumerated() {
             result.isLoading = true
@@ -274,40 +284,8 @@ class BrowserContainerController: UIViewController {
         
     }
     
-    
-    
-    
     func setNavigation() {
-//        backButton.enabled = browserControllers[currentViewingIndex].canGoBack
-//        forwardButton.enabled = browserControllers[currentViewingIndex].canGoForward
-//
-//        var toLeading:CGFloat = 0;
-//
-//        if backButton.enabled {
-//            toLeading = 48
-//        }
-//
-//        if forwardButton.enabled {
-//            toLeading = 91
-//        }
-//
-//        if toLeading != locationFieldLeading.constant {
-//            locationField.layoutIfNeeded()
-//            UIView.animateWithDuration(0.2, animations: {
-//                //                self.locationFieldLeading.constant = toLeading
-//                //                self.locationField.layoutIfNeeded()
-//            })
-//        }
-//
-//        let hasNext = currentViewingIndex < browserControllers.count - 1
-//        let hasPrevious = currentViewingIndex > 0
-//
-//        navBarController?.setHasNext(hasNext)
-//        navBarController?.setHasPrevious(hasPrevious)
-//        navBarController?.setItemCounts(currentViewingIndex + 1, totalItems: browserControllers.count)
-//
-//        //reset the visibility delegate
-        for (index, controller) in browserControllers.enumerated() {
+        for (index, controller) in webViews.enumerated() {
             controller.visibilityDelegate = index == currentViewingIndex ? self : nil
         }
 //
@@ -315,11 +293,11 @@ class BrowserContainerController: UIViewController {
     }
     
     @IBAction func goForward(sender: AnyObject) {
-        browserControllers[currentViewingIndex].goForward()
+        webViews[currentViewingIndex].goForward()
     }
     
     @IBAction func goBack(sender: AnyObject) {
-        browserControllers[currentViewingIndex].goBack()
+        webViews[currentViewingIndex].goBack()
     }
     
     override func didReceiveMemoryWarning() {
@@ -423,7 +401,7 @@ extension BrowserContainerController: UIScrollViewDelegate {
     }
     
     func scrollComplete() {
-        currentViewingIndex = Int(scrollView.contentOffset.x / UIScreen.main.bounds.width)
+        currentViewingIndex = Int(resultsScrollView.contentOffset.x / UIScreen.main.bounds.width)
         
         setNavigation()
 //        showNavBar()
@@ -472,21 +450,64 @@ extension BrowserContainerController: SpyDelegate {
     }
 }
 
-//extension BrowserContainerController: NavBarDelegate {
-//    func goPreviousResult() {
-//        let screenWidth = UIScreen.mainScreen().bounds.size.width
-//        let xOffset = scrollView.contentOffset.x
-//        scrollView.setContentOffset(CGPoint(x: xOffset - screenWidth, y: 0.0), animated: true)
-//    }
-//
-//    func goNextResult() {
-//        let screenWidth = UIScreen.mainScreen().bounds.size.width
-//        let xOffset = scrollView.contentOffset.x
-//        scrollView.setContentOffset(CGPoint(x: xOffset + screenWidth, y: 0.0), animated: true)
-//    }
-//
-//    func showMenu(menu:UIViewController) {
-//        menu.view.frame = view.frame
-//        view.addSubview(menu.view)
-//    }
-//}
+extension BrowserContainerController: ScreenshotDelegate {
+    func queueScreenshot(index:Int) {
+        if (!screenshotQueue.contains(index)) {
+            screenshotQueue.append(index)
+            print(screenshotQueue)
+        }
+        if (!queueRunning) {
+            queueRunning = true
+            processNextScreenshot()
+        }
+    }
+    
+    func processNextScreenshot() {
+        if (screenshotQueue.count > 0){
+            let nextScreen = screenshotQueue[0]
+            print("shotting \(nextScreen)")
+            resultsScrollView.setContentOffset(CGPoint(x: (view.bounds.width * CGFloat(nextScreen)), y: 0), animated: false)
+            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: {[weak self] outerTimer in
+                if let screenshot = self?.resultsScrollView.screenShot {
+                    self?.multiDexController?.replaceImageAtIndex(index: nextScreen, image: (date: Date(), image: screenshot))
+                    Timer.scheduledTimer(withTimeInterval: 0.1
+                        , repeats: false, block: {[weak self] timer in
+                        if self?.screenshotQueue.count ?? 0 > 0 {
+                            self?.screenshotQueue.remove(at: 0)
+                        }
+                        self?.processNextScreenshot()
+                    })
+                }
+            })
+        } else {
+            queueRunning = false
+        }
+    }
+}
+
+extension BrowserContainerController:EngineDelegate {
+    func fullscreenEngine(at index:Int, screenshotBounds: CGRect, screenshotImage: UIImage?) {
+        showResults(index: index)
+        
+    }
+}
+
+extension UIView {
+    var screenShot: UIImage?  {
+        if #available(iOS 10, *) {
+            let renderer = UIGraphicsImageRenderer(bounds: self.bounds)
+            return renderer.image { (context) in
+                self.layer.render(in: context.cgContext)
+            }
+        } else {
+            UIGraphicsBeginImageContextWithOptions(bounds.size, false, 5);
+            if let _ = UIGraphicsGetCurrentContext() {
+                drawHierarchy(in: bounds, afterScreenUpdates: true)
+                let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                return screenshot
+            }
+            return nil
+        }
+    }
+}

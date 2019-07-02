@@ -10,18 +10,28 @@ import UIKit
 import WebKit
 import NVActivityIndicatorView
 
+
+protocol ScreenshotDelegate {
+    func queueScreenshot(index:Int)
+}
+
 class CacheBrowserController: UIViewController {
 
     var webview:WKWebView?
     
     var delegate:CacheBrowserDelegate?
     var visibilityDelegate:NavBarVisibilityDelegate?
+    var screenShotDelegate:ScreenshotDelegate?
     
     var isIndexBrowser = false
     
     var loadNotificationSentURL = "";
     
     var lastScrollOffset:CGFloat = 0.0
+    
+    var engineIndex = 0
+    var screenshotTimer:Timer?
+    var lastScreenshotDate = Date()
     
     @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     
@@ -84,6 +94,13 @@ class CacheBrowserController: UIViewController {
         userContentController.addUserScript(userScript)
         userContentController.add(self, name: "doneLoading")
         
+        let mutationScript = "var mutationObserver = new MutationObserver(function(mutations) {window.webkit.messageHandlers.pageMutated.postMessage('mutated');});mutationObserver.observe(document, { childList: true, subtree: true });"
+        
+        let userMutationScript = WKUserScript(source: mutationScript, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
+        
+        userContentController.addUserScript(userMutationScript)
+        userContentController.add(self, name: "pageMutated")
+        
         
         let configuration = WKWebViewConfiguration()
         configuration.userContentController = userContentController
@@ -118,19 +135,6 @@ class CacheBrowserController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func getLinksUsingJavascript() {
-        webview?.evaluateJavaScript("document.documentElement.outerHTML.toString()",
-                                   completionHandler: { (html: Any?, error: Error?) in
-                                    if let response = html as? String {
-                                        debugPrint(response);
-                                        let links = HtmlParser.parseGoogleResults(html: response)
-                                        
-                                        if links.count > 0 {
-                                            self.delegate?.responseLinks(links: links)
-                                        }
-                                    }
-        })
-    }
     
     func webView(webView: WKWebView, createWebViewWithConfiguration configuration: WKWebViewConfiguration, forNavigationAction navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         
@@ -149,18 +153,13 @@ class CacheBrowserController: UIViewController {
         return nil
         
     }
-    
-    
 
 }
 
 extension CacheBrowserController: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         
-        if isIndexBrowser {
-            getLinksUsingJavascript()
-        } else {
-//            activityIndicator.stopAnimating()
+        if (message.name == "doneLoading") {
             let data = (message.body as! String).components(separatedBy: "{()}")
             
             delegate?.cachePageTitle(pageURL: url!.absoluteString, title: data[1])
@@ -168,8 +167,12 @@ extension CacheBrowserController: WKScriptMessageHandler {
             if loadNotificationSentURL != data[0] {
                 delegate?.pageLoaded()
                 loadNotificationSentURL = data[0]
+                screenShotDelegate?.queueScreenshot(index: engineIndex)
             }
+        } else if (message.name == "pageMutated") {
+            screenShotDelegate?.queueScreenshot(index: engineIndex)
         }
+        
     }
 }
 
@@ -202,11 +205,11 @@ extension CacheBrowserController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentOffset = scrollView.contentOffset.y
         
-        if currentOffset > 0 && currentOffset != lastScrollOffset {
-            delegate?.hideStatusBar()
-        } else if currentOffset != lastScrollOffset {
-            delegate?.showStatusBar()
-        }
+//        if currentOffset > 0 && currentOffset != lastScrollOffset {
+//            delegate?.hideStatusBar()
+//        } else if currentOffset != lastScrollOffset {
+//            delegate?.showStatusBar()
+//        }
         
 //        if currentOffset > 10 && currentOffset > lastScrollOffset {
 //            visibilityDelegate?.hideNavBar()
