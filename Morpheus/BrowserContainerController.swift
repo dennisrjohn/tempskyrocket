@@ -9,6 +9,7 @@
 import UIKit
 import AVKit
 import SwiftVideoBackground
+import WebKit
 
 class SearchItem {
     var url:String
@@ -185,6 +186,7 @@ class BrowserContainerController: UIViewController {
     }
     
     @IBAction func buttonTwoTapped(_ sender: Any) {
+        queueScreenshot(index: currentViewingIndex)
         for i in 0...webViews.count - 1 {
             queueScreenshot(index: i)
         }
@@ -413,7 +415,6 @@ extension BrowserContainerController: UIScrollViewDelegate {
     
     func scrollComplete() {
         currentViewingIndex = Int(resultsScrollView.contentOffset.x / UIScreen.main.bounds.width)
-        
         setNavigation()
 //        showNavBar()
     }
@@ -480,16 +481,25 @@ extension BrowserContainerController: ScreenshotDelegate {
         if (screenshotQueue.count > 0){
             let nextScreen = screenshotQueue.removeFirst()
             resultsScrollView.setContentOffset(CGPoint(x: (view.bounds.width * CGFloat(nextScreen)), y: 0), animated: false)
-            screenShotTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false, block: {[weak self] outerTimer in
-                if let screenshot = self?.resultsScrollView.screenShot {
-                    if (self?.queueRunning ?? false){
-                        self?.multiDexController?.replaceImageAtIndex(index: nextScreen, image: (date: Date(), image: screenshot))
-                        self?.screenShotTimer = Timer.scheduledTimer(withTimeInterval: 0.1
-                            , repeats: false, block: {[weak self] timer in
-                            self?.processNextScreenshot()
-                        })
-                    }
-                }
+            screenShotTimer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false, block: {[weak self] outerTimer in
+                let snapshotConfiguration = WKSnapshotConfiguration()
+                snapshotConfiguration.snapshotWidth = 400
+                self?.webViews[nextScreen].webview?.takeSnapshot(with: snapshotConfiguration, completionHandler: {[weak self] (image, error) in
+                    self?.multiDexController?.replaceImageAtIndex(index: nextScreen, image: (date: Date(), image: image))
+//                    self?.screenShotTimer = Timer.scheduledTimer(withTimeInterval: 0.1
+//                        , repeats: false, block: {[weak self] timer in
+                        self?.processNextScreenshot()
+//                    })
+                })
+//                if let screenshot = self?.resultsScrollView.screenShot {
+//                    if (self?.queueRunning ?? false){
+//                        self?.multiDexController?.replaceImageAtIndex(index: nextScreen, image: (date: Date(), image: screenshot))
+//                        self?.screenShotTimer = Timer.scheduledTimer(withTimeInterval: 0.1
+//                            , repeats: false, block: {[weak self] timer in
+//                            self?.processNextScreenshot()
+//                        })
+//                    }
+//                }
             })
         } else {
             queueRunning = false
@@ -500,6 +510,7 @@ extension BrowserContainerController: ScreenshotDelegate {
 extension BrowserContainerController:EngineDelegate {
     func fullscreenEngine(at index:Int, screenshotBounds: CGRect, screenshotImage: UIImage?) {
         showResults(index: index)
+        currentViewingIndex = index
         screenShotTimer?.invalidate()
         screenshotQueue = []
         queueRunning = false

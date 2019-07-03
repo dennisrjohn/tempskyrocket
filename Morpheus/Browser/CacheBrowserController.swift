@@ -41,7 +41,6 @@ class CacheBrowserController: UIViewController {
                 if webview == nil {
                     setupWebView()
                 }
-                
                 webview!.load(URLRequest(url: newURL))
             }
         }
@@ -153,6 +152,7 @@ class CacheBrowserController: UIViewController {
         return nil
         
     }
+    
 
 }
 
@@ -181,6 +181,9 @@ extension CacheBrowserController: WKUIDelegate {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress" {
             visibilityDelegate?.showProgress(progress: Float(webview!.estimatedProgress))
+            if (webview!.estimatedProgress > 0.25){
+                screenShotDelegate?.queueScreenshot(index: engineIndex)
+            }
         }
     }
     

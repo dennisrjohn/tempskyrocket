@@ -8,19 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		010E42BE22C9375D00AEB5D4 /* xflame.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 010E42BD22C9375700AEB5D4 /* xflame.mp4 */; };
-		0120234E22CC2F1500DD9E04 /* Animation0.json in Resources */ = {isa = PBXBuildFile; fileRef = 0120234122CC2F1500DD9E04 /* Animation0.json */; };
-		0120234F22CC2F1500DD9E04 /* SearchBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 0120234222CC2F1500DD9E04 /* SearchBackground.json */; };
-		0120235022CC2F1500DD9E04 /* Animation1.json in Resources */ = {isa = PBXBuildFile; fileRef = 0120234322CC2F1500DD9E04 /* Animation1.json */; };
-		0120235122CC2F1500DD9E04 /* Animation6.json in Resources */ = {isa = PBXBuildFile; fileRef = 0120234422CC2F1500DD9E04 /* Animation6.json */; };
-		0120235222CC2F1500DD9E04 /* SpyBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 0120234522CC2F1500DD9E04 /* SpyBackground.json */; };
-		0120235322CC2F1500DD9E04 /* LoadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0120234622CC2F1500DD9E04 /* LoadingAnimation.json */; };
-		0120235422CC2F1500DD9E04 /* Animation7.json in Resources */ = {isa = PBXBuildFile; fileRef = 0120234722CC2F1500DD9E04 /* Animation7.json */; };
-		0120235522CC2F1500DD9E04 /* Animation4.json in Resources */ = {isa = PBXBuildFile; fileRef = 0120234822CC2F1500DD9E04 /* Animation4.json */; };
-		0120235622CC2F1500DD9E04 /* Animation8.json in Resources */ = {isa = PBXBuildFile; fileRef = 0120234922CC2F1500DD9E04 /* Animation8.json */; };
-		0120235722CC2F1500DD9E04 /* Animation9.json in Resources */ = {isa = PBXBuildFile; fileRef = 0120234A22CC2F1500DD9E04 /* Animation9.json */; };
-		0120235822CC2F1500DD9E04 /* Animation5.json in Resources */ = {isa = PBXBuildFile; fileRef = 0120234B22CC2F1500DD9E04 /* Animation5.json */; };
-		0120235922CC2F1500DD9E04 /* Animation2.json in Resources */ = {isa = PBXBuildFile; fileRef = 0120234C22CC2F1500DD9E04 /* Animation2.json */; };
-		0120235A22CC2F1500DD9E04 /* Animation3.json in Resources */ = {isa = PBXBuildFile; fileRef = 0120234D22CC2F1500DD9E04 /* Animation3.json */; };
 		01820E3720D2008A0079063C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E3620D2008A0079063C /* AppDelegate.swift */; };
 		01820E3920D2008A0079063C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E3820D2008A0079063C /* ViewController.swift */; };
 		01820E3C20D2008A0079063C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01820E3A20D2008A0079063C /* Main.storyboard */; };
@@ -36,25 +23,25 @@
 		01B310A922C957CC0092F110 /* powerup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01B310A722C957CC0092F110 /* powerup.mp3 */; };
 		01B310AB22C958790092F110 /* SearchSpyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B310AA22C958790092F110 /* SearchSpyViewController.swift */; };
 		01B310AE22C958B00092F110 /* XBrowser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01B310AD22C958B00092F110 /* XBrowser.storyboard */; };
+		9546998622CAC3D000BE45B5 /* Animation0.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546997922CAC3CF00BE45B5 /* Animation0.json */; };
+		9546998722CAC3D000BE45B5 /* SearchBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546997A22CAC3CF00BE45B5 /* SearchBackground.json */; };
+		9546998822CAC3D000BE45B5 /* Animation1.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546997B22CAC3CF00BE45B5 /* Animation1.json */; };
+		9546998922CAC3D000BE45B5 /* Animation6.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546997C22CAC3CF00BE45B5 /* Animation6.json */; };
+		9546998A22CAC3D000BE45B5 /* SpyBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546997D22CAC3CF00BE45B5 /* SpyBackground.json */; };
+		9546998B22CAC3D000BE45B5 /* LoadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546997E22CAC3CF00BE45B5 /* LoadingAnimation.json */; };
+		9546998C22CAC3D000BE45B5 /* Animation7.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546997F22CAC3CF00BE45B5 /* Animation7.json */; };
+		9546998D22CAC3D000BE45B5 /* Animation4.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546998022CAC3CF00BE45B5 /* Animation4.json */; };
+		9546998E22CAC3D000BE45B5 /* Animation8.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546998122CAC3CF00BE45B5 /* Animation8.json */; };
+		9546998F22CAC3D000BE45B5 /* Animation9.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546998222CAC3CF00BE45B5 /* Animation9.json */; };
+		9546999022CAC3D000BE45B5 /* Animation5.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546998322CAC3CF00BE45B5 /* Animation5.json */; };
+		9546999122CAC3D000BE45B5 /* Animation2.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546998422CAC3CF00BE45B5 /* Animation2.json */; };
+		9546999222CAC3D000BE45B5 /* Animation3.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546998522CAC3CF00BE45B5 /* Animation3.json */; };
 		9546999422CB047300BE45B5 /* MultiDexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546999322CB047300BE45B5 /* MultiDexController.swift */; };
 		B2FCEC39AF9E37F5DBB48A33 /* Pods_Morpheus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3ECC176FF1F37DBC586ACA /* Pods_Morpheus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		010E42BD22C9375700AEB5D4 /* xflame.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = xflame.mp4; sourceTree = "<group>"; };
-		0120234122CC2F1500DD9E04 /* Animation0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation0.json; sourceTree = "<group>"; };
-		0120234222CC2F1500DD9E04 /* SearchBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SearchBackground.json; sourceTree = "<group>"; };
-		0120234322CC2F1500DD9E04 /* Animation1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation1.json; sourceTree = "<group>"; };
-		0120234422CC2F1500DD9E04 /* Animation6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation6.json; sourceTree = "<group>"; };
-		0120234522CC2F1500DD9E04 /* SpyBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpyBackground.json; sourceTree = "<group>"; };
-		0120234622CC2F1500DD9E04 /* LoadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingAnimation.json; sourceTree = "<group>"; };
-		0120234722CC2F1500DD9E04 /* Animation7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation7.json; sourceTree = "<group>"; };
-		0120234822CC2F1500DD9E04 /* Animation4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation4.json; sourceTree = "<group>"; };
-		0120234922CC2F1500DD9E04 /* Animation8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation8.json; sourceTree = "<group>"; };
-		0120234A22CC2F1500DD9E04 /* Animation9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation9.json; sourceTree = "<group>"; };
-		0120234B22CC2F1500DD9E04 /* Animation5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation5.json; sourceTree = "<group>"; };
-		0120234C22CC2F1500DD9E04 /* Animation2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation2.json; sourceTree = "<group>"; };
-		0120234D22CC2F1500DD9E04 /* Animation3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation3.json; sourceTree = "<group>"; };
 		01820E3320D2008A0079063C /* Morpheus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morpheus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01820E3620D2008A0079063C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01820E3820D2008A0079063C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +60,21 @@
 		01B310AA22C958790092F110 /* SearchSpyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSpyViewController.swift; sourceTree = "<group>"; };
 		01B310AD22C958B00092F110 /* XBrowser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XBrowser.storyboard; sourceTree = "<group>"; };
 		4D3ECC176FF1F37DBC586ACA /* Pods_Morpheus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Morpheus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9546997922CAC3CF00BE45B5 /* Animation0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation0.json; sourceTree = "<group>"; };
+		9546997A22CAC3CF00BE45B5 /* SearchBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SearchBackground.json; sourceTree = "<group>"; };
+		9546997B22CAC3CF00BE45B5 /* Animation1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation1.json; sourceTree = "<group>"; };
+		9546997C22CAC3CF00BE45B5 /* Animation6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation6.json; sourceTree = "<group>"; };
+		9546997D22CAC3CF00BE45B5 /* SpyBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpyBackground.json; sourceTree = "<group>"; };
+		9546997E22CAC3CF00BE45B5 /* LoadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingAnimation.json; sourceTree = "<group>"; };
+		9546997F22CAC3CF00BE45B5 /* Animation7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation7.json; sourceTree = "<group>"; };
+		9546998022CAC3CF00BE45B5 /* Animation4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation4.json; sourceTree = "<group>"; };
+		9546998122CAC3CF00BE45B5 /* Animation8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation8.json; sourceTree = "<group>"; };
+		9546998222CAC3CF00BE45B5 /* Animation9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation9.json; sourceTree = "<group>"; };
+		9546998322CAC3CF00BE45B5 /* Animation5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation5.json; sourceTree = "<group>"; };
+		9546998422CAC3CF00BE45B5 /* Animation2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation2.json; sourceTree = "<group>"; };
+		9546998522CAC3CF00BE45B5 /* Animation3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation3.json; sourceTree = "<group>"; };
 		9546999322CB047300BE45B5 /* MultiDexController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiDexController.swift; sourceTree = "<group>"; };
+		9546999822CD137F00BE45B5 /* xflame.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = xflame.mp4; sourceTree = "<group>"; };
 		A9EB9312D54957F791833145 /* Pods-Morpheus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Morpheus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Morpheus/Pods-Morpheus.debug.xcconfig"; sourceTree = "<group>"; };
 		FEDB626F8716855D02111234 /* Pods-Morpheus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Morpheus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Morpheus/Pods-Morpheus.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,26 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				010E42BD22C9375700AEB5D4 /* xflame.mp4 */,
-			);
-			path = Animations;
-			sourceTree = "<group>";
-		};
-		0120234022CC2F1500DD9E04 /* Animations */ = {
-			isa = PBXGroup;
-			children = (
-				0120234122CC2F1500DD9E04 /* Animation0.json */,
-				0120234222CC2F1500DD9E04 /* SearchBackground.json */,
-				0120234322CC2F1500DD9E04 /* Animation1.json */,
-				0120234422CC2F1500DD9E04 /* Animation6.json */,
-				0120234522CC2F1500DD9E04 /* SpyBackground.json */,
-				0120234622CC2F1500DD9E04 /* LoadingAnimation.json */,
-				0120234722CC2F1500DD9E04 /* Animation7.json */,
-				0120234822CC2F1500DD9E04 /* Animation4.json */,
-				0120234922CC2F1500DD9E04 /* Animation8.json */,
-				0120234A22CC2F1500DD9E04 /* Animation9.json */,
-				0120234B22CC2F1500DD9E04 /* Animation5.json */,
-				0120234C22CC2F1500DD9E04 /* Animation2.json */,
-				0120234D22CC2F1500DD9E04 /* Animation3.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -139,7 +120,8 @@
 		01820E3520D2008A0079063C /* Morpheus */ = {
 			isa = PBXGroup;
 			children = (
-				0120234022CC2F1500DD9E04 /* Animations */,
+				9546999522CBDF5A00BE45B5 /* Components */,
+				9546997822CAC3CF00BE45B5 /* Animations */,
 				01B310A222C954FC0092F110 /* Browser */,
 				010E42BC22C936CB00AEB5D4 /* Animations */,
 				01B310A522C957980092F110 /* SoundEffects */,
@@ -193,6 +175,35 @@
 				FEDB626F8716855D02111234 /* Pods-Morpheus.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9546997822CAC3CF00BE45B5 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				9546997922CAC3CF00BE45B5 /* Animation0.json */,
+				9546997A22CAC3CF00BE45B5 /* SearchBackground.json */,
+				9546997B22CAC3CF00BE45B5 /* Animation1.json */,
+				9546997C22CAC3CF00BE45B5 /* Animation6.json */,
+				9546997D22CAC3CF00BE45B5 /* SpyBackground.json */,
+				9546997E22CAC3CF00BE45B5 /* LoadingAnimation.json */,
+				9546997F22CAC3CF00BE45B5 /* Animation7.json */,
+				9546998022CAC3CF00BE45B5 /* Animation4.json */,
+				9546998122CAC3CF00BE45B5 /* Animation8.json */,
+				9546998222CAC3CF00BE45B5 /* Animation9.json */,
+				9546998322CAC3CF00BE45B5 /* Animation5.json */,
+				9546998422CAC3CF00BE45B5 /* Animation2.json */,
+				9546998522CAC3CF00BE45B5 /* Animation3.json */,
+				9546999822CD137F00BE45B5 /* xflame.mp4 */,
+			);
+			name = Animations;
+			path = ../../xbrowser/Cake/Animations;
+			sourceTree = "<group>";
+		};
+		9546999522CBDF5A00BE45B5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		9CD6A554FEBA30490A7712DB /* Frameworks */ = {
@@ -263,27 +274,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0120235222CC2F1500DD9E04 /* SpyBackground.json in Resources */,
-				0120235922CC2F1500DD9E04 /* Animation2.json in Resources */,
-				0120235422CC2F1500DD9E04 /* Animation7.json in Resources */,
-				0120235022CC2F1500DD9E04 /* Animation1.json in Resources */,
-				0120235122CC2F1500DD9E04 /* Animation6.json in Resources */,
+				9546998A22CAC3D000BE45B5 /* SpyBackground.json in Resources */,
+				9546999122CAC3D000BE45B5 /* Animation2.json in Resources */,
+				9546998C22CAC3D000BE45B5 /* Animation7.json in Resources */,
+				9546998822CAC3D000BE45B5 /* Animation1.json in Resources */,
+				9546998922CAC3D000BE45B5 /* Animation6.json in Resources */,
 				01820E4120D2008C0079063C /* LaunchScreen.storyboard in Resources */,
 				01B310A922C957CC0092F110 /* powerup.mp3 in Resources */,
 				01B310A822C957CC0092F110 /* voices.mp3 in Resources */,
-				0120235622CC2F1500DD9E04 /* Animation8.json in Resources */,
+				9546998E22CAC3D000BE45B5 /* Animation8.json in Resources */,
 				010E42BE22C9375D00AEB5D4 /* xflame.mp4 in Resources */,
 				01820E3E20D2008C0079063C /* Assets.xcassets in Resources */,
 				01820E3C20D2008A0079063C /* Main.storyboard in Resources */,
 				01B310AE22C958B00092F110 /* XBrowser.storyboard in Resources */,
-				0120235A22CC2F1500DD9E04 /* Animation3.json in Resources */,
-				0120235522CC2F1500DD9E04 /* Animation4.json in Resources */,
-				0120234E22CC2F1500DD9E04 /* Animation0.json in Resources */,
+				9546999222CAC3D000BE45B5 /* Animation3.json in Resources */,
+				9546998D22CAC3D000BE45B5 /* Animation4.json in Resources */,
+				9546998622CAC3D000BE45B5 /* Animation0.json in Resources */,
 				01820E4C20D208830079063C /* CacheBrowserController.xib in Resources */,
-				0120235822CC2F1500DD9E04 /* Animation5.json in Resources */,
-				0120234F22CC2F1500DD9E04 /* SearchBackground.json in Resources */,
-				0120235722CC2F1500DD9E04 /* Animation9.json in Resources */,
-				0120235322CC2F1500DD9E04 /* LoadingAnimation.json in Resources */,
+				9546999022CAC3D000BE45B5 /* Animation5.json in Resources */,
+				9546998722CAC3D000BE45B5 /* SearchBackground.json in Resources */,
+				9546998F22CAC3D000BE45B5 /* Animation9.json in Resources */,
+				9546998B22CAC3D000BE45B5 /* LoadingAnimation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

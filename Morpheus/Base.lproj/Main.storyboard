@@ -265,7 +265,7 @@
                                                     <rect key="frame" x="8" y="8" width="144" height="184"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C3q-PS-ZBf">
-                                                            <rect key="frame" x="0.0" y="-12" width="144" height="172"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="144" height="160"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHX-gt-1hf">
@@ -286,7 +286,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="VHX-gt-1hf" secondAttribute="trailing" id="O3e-Fl-CfH"/>
                                                         <constraint firstItem="C3q-PS-ZBf" firstAttribute="leading" secondItem="krn-3I-dKI" secondAttribute="leading" id="QDS-zD-U8d"/>
                                                         <constraint firstItem="C3q-PS-ZBf" firstAttribute="top" secondItem="krn-3I-dKI" secondAttribute="top" id="RRb-zv-fnd"/>
-                                                        <constraint firstItem="C3q-PS-ZBf" firstAttribute="top" secondItem="krn-3I-dKI" secondAttribute="top" constant="-12" id="XOg-AY-XV1"/>
+                                                        <constraint firstItem="C3q-PS-ZBf" firstAttribute="top" secondItem="krn-3I-dKI" secondAttribute="top" id="XOg-AY-XV1"/>
                                                         <constraint firstAttribute="bottom" secondItem="VHX-gt-1hf" secondAttribute="bottom" id="k2h-ay-NT8"/>
                                                         <constraint firstAttribute="trailing" secondItem="C3q-PS-ZBf" secondAttribute="trailing" id="k8R-Z9-gEO"/>
                                                     </constraints>
