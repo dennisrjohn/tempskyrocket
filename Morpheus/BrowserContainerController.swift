@@ -186,11 +186,11 @@ class BrowserContainerController: UIViewController {
     }
     
     @IBAction func buttonTwoTapped(_ sender: Any) {
+        showMultiDex()
         queueScreenshot(index: currentViewingIndex)
         for i in 0...webViews.count - 1 {
             queueScreenshot(index: i)
         }
-        showMultiDex()
     }
     
     @IBAction func buttonThreeTapped(_ sender: Any) {
@@ -464,7 +464,7 @@ extension BrowserContainerController: SpyDelegate {
 
 extension BrowserContainerController: ScreenshotDelegate {
     func queueScreenshot(index:Int) {
-        if !resultsScrollView.isScrollEnabled {
+        if !resultsScrollView.isScrollEnabled || multiDexContainerView.isHidden {
             return
         }
         if (!screenshotQueue.contains(index)) {
@@ -478,6 +478,8 @@ extension BrowserContainerController: ScreenshotDelegate {
     }
     
     func processNextScreenshot() {
+        if !queueRunning { return }
+        
         if (screenshotQueue.count > 0){
             let nextScreen = screenshotQueue.removeFirst()
             resultsScrollView.setContentOffset(CGPoint(x: (view.bounds.width * CGFloat(nextScreen)), y: 0), animated: false)
