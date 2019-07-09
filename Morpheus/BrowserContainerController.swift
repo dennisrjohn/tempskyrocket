@@ -59,7 +59,11 @@ class BrowserContainerController: UIViewController {
     
     var searchTerm:String?
     
-    var currentViewingIndex = 0;
+    var currentViewingIndex = 0 {
+        didSet {
+            HydrationHelper.instance.setActiveBrowser(index: currentViewingIndex)
+        }
+    };
     var currentLoadingIndex = 0;
     
     var navHidden = false
@@ -120,9 +124,28 @@ class BrowserContainerController: UIViewController {
         
         addGestureRecognizers()
         
-        showMultiDex()
+        let bootstrapData = HydrationHelper.instance.getBootstrapData()
         
-        showSearch()
+        if (bootstrapData.tabs.keys.count == 0) {
+            showSearch()
+        } else {
+            searchResults = [SearchItem]()
+            multiDexController?.engines = engines
+            resultsScrollView.isScrollEnabled = true
+            
+            let currentTab = bootstrapData.tabs[0]!
+            var keys = Array(currentTab.keys)
+            keys.sort()
+            for key in keys {
+                if let nextURL = currentTab[key] {
+                    searchResults.append(SearchItem(url: nextURL))
+                }
+            }
+            showURLS()
+        }
+        
+        bootstrapData.showing == .multiDex ? showMultiDex() : showResults(index: bootstrapData.activeBrowser)
+        
         
     }
     
@@ -133,6 +156,7 @@ class BrowserContainerController: UIViewController {
         resultsScrollView.frame = CGRect(x: 0.0, y: 0.0, width: containerFrame.width, height: containerFrame.height - toolBarHeight)
         resultsScrollView.setContentOffset(CGPoint(x: (view.bounds.width * CGFloat(index)), y: 0), animated: false)
         multiDexContainerView.isHidden = true
+        HydrationHelper.instance.setShowing(viewState: .browser)
     }
     
     func showMultiDex() {
@@ -140,6 +164,7 @@ class BrowserContainerController: UIViewController {
         let safeY = UIApplication.shared.keyWindow!.safeAreaInsets.top
         resultsScrollView.frame = CGRect(x: 0.0, y: containerFrame.height, width: containerFrame.width, height: containerFrame.height - toolBarHeight)
         multiDexContainerView.isHidden = false
+        HydrationHelper.instance.setShowing(viewState: .multiDex)
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -202,6 +227,7 @@ class BrowserContainerController: UIViewController {
     func processSearch() {
         currentLoadingIndex = 0
         currentViewingIndex = 0
+        HydrationHelper.instance.setActiveBrowser(index: 0)
         if searchTerm != nil {
             if verifyUrl(urlString: formattedURLString(string: searchTerm!)) {
                 pageTitles = [String: String]()

@@ -37,6 +37,7 @@
 		9546999122CAC3D000BE45B5 /* Animation2.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546998422CAC3CF00BE45B5 /* Animation2.json */; };
 		9546999222CAC3D000BE45B5 /* Animation3.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546998522CAC3CF00BE45B5 /* Animation3.json */; };
 		9546999422CB047300BE45B5 /* MultiDexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546999322CB047300BE45B5 /* MultiDexController.swift */; };
+		9546999B22D4526C00BE45B5 /* HydrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546999A22D4526C00BE45B5 /* HydrationHelper.swift */; };
 		B2FCEC39AF9E37F5DBB48A33 /* Pods_Morpheus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3ECC176FF1F37DBC586ACA /* Pods_Morpheus.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		9546998522CAC3CF00BE45B5 /* Animation3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation3.json; sourceTree = "<group>"; };
 		9546999322CB047300BE45B5 /* MultiDexController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiDexController.swift; sourceTree = "<group>"; };
 		9546999822CD137F00BE45B5 /* xflame.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = xflame.mp4; sourceTree = "<group>"; };
+		9546999A22D4526C00BE45B5 /* HydrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationHelper.swift; sourceTree = "<group>"; };
 		A9EB9312D54957F791833145 /* Pods-Morpheus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Morpheus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Morpheus/Pods-Morpheus.debug.xcconfig"; sourceTree = "<group>"; };
 		FEDB626F8716855D02111234 /* Pods-Morpheus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Morpheus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Morpheus/Pods-Morpheus.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 				010E42BC22C936CB00AEB5D4 /* Animations */,
 				01B310A522C957980092F110 /* SoundEffects */,
 				01B310AC22C9589D0092F110 /* SearchSpy */,
+				9546999922D4524D00BE45B5 /* Helpers */,
 				01820E3620D2008A0079063C /* AppDelegate.swift */,
 				01820E3820D2008A0079063C /* ViewController.swift */,
 				01820E3A20D2008A0079063C /* Main.storyboard */,
@@ -204,6 +207,14 @@
 			children = (
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		9546999922D4524D00BE45B5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9546999A22D4526C00BE45B5 /* HydrationHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		9CD6A554FEBA30490A7712DB /* Frameworks */ = {
@@ -347,6 +358,7 @@
 				9546999422CB047300BE45B5 /* MultiDexController.swift in Sources */,
 				01B310AB22C958790092F110 /* SearchSpyViewController.swift in Sources */,
 				01820E4920D2084B0079063C /* BrowserContainerController.swift in Sources */,
+				9546999B22D4526C00BE45B5 /* HydrationHelper.swift in Sources */,
 				01820E5320D21BFF0079063C /* SearchPopupController.swift in Sources */,
 				01820E3920D2008A0079063C /* ViewController.swift in Sources */,
 				01820E3720D2008A0079063C /* AppDelegate.swift in Sources */,
