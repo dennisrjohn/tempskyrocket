@@ -121,5 +121,4 @@ class CellView:UIView {
         otherSubContent.frame = borderView.bounds
         borderView.addSubview(otherSubContent)
     }
-    
 }

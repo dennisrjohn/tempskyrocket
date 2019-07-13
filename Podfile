@@ -6,9 +6,7 @@ target 'Morpheus' do
   use_frameworks!
 
   # Pods for Morpheus
-  pod 'Alamofire'
-  pod 'NVActivityIndicatorView', '~> 4.4.0'
-  pod 'Kanna', '~> 4.0.0'
-  pod 'SwiftVideoBackground', '~> 3.1.0'
+  pod 'Alamofire', '~>5.0.0-beta.6'
   pod 'lottie-ios', '~> 3.0.0'
+  pod 'AuthorizeMe', '~>1.2.2'
 end

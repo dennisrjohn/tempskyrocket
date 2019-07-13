@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		010E42BE22C9375D00AEB5D4 /* xflame.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 010E42BD22C9375700AEB5D4 /* xflame.mp4 */; };
+		0153A31222DA897B00BBBDA4 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A31122DA897B00BBBDA4 /* HomeScreenController.swift */; };
+		0153A31622DA939300BBBDA4 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0153A31422DA939300BBBDA4 /* Raleway-SemiBold.ttf */; };
+		0153A31722DA939300BBBDA4 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0153A31522DA939300BBBDA4 /* Raleway-Regular.ttf */; };
 		01820E3720D2008A0079063C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E3620D2008A0079063C /* AppDelegate.swift */; };
 		01820E3920D2008A0079063C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E3820D2008A0079063C /* ViewController.swift */; };
 		01820E3C20D2008A0079063C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01820E3A20D2008A0079063C /* Main.storyboard */; };
 		01820E3E20D2008C0079063C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01820E3D20D2008C0079063C /* Assets.xcassets */; };
 		01820E4120D2008C0079063C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01820E3F20D2008C0079063C /* LaunchScreen.storyboard */; };
 		01820E4920D2084B0079063C /* BrowserContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E4820D2084B0079063C /* BrowserContainerController.swift */; };
-		01820E4C20D208830079063C /* CacheBrowserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01820E4A20D208830079063C /* CacheBrowserController.xib */; };
 		01820E4D20D208830079063C /* CacheBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E4B20D208830079063C /* CacheBrowserController.swift */; };
-		01820E4F20D209D40079063C /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E4E20D209D40079063C /* HtmlParser.swift */; };
 		01820E5120D214B90079063C /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E5020D214B90079063C /* UIViewExtension.swift */; };
 		01820E5320D21BFF0079063C /* SearchPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E5220D21BFF0079063C /* SearchPopupController.swift */; };
 		01B310A822C957CC0092F110 /* voices.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01B310A622C957CC0092F110 /* voices.mp3 */; };
@@ -42,7 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		010E42BD22C9375700AEB5D4 /* xflame.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = xflame.mp4; sourceTree = "<group>"; };
+		0153A31122DA897B00BBBDA4 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
+		0153A31422DA939300BBBDA4 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
+		0153A31522DA939300BBBDA4 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		01820E3320D2008A0079063C /* Morpheus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morpheus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01820E3620D2008A0079063C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01820E3820D2008A0079063C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,7 +53,6 @@
 		01820E4020D2008C0079063C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01820E4220D2008C0079063C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01820E4820D2084B0079063C /* BrowserContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserContainerController.swift; sourceTree = "<group>"; };
-		01820E4A20D208830079063C /* CacheBrowserController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CacheBrowserController.xib; sourceTree = "<group>"; };
 		01820E4B20D208830079063C /* CacheBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheBrowserController.swift; sourceTree = "<group>"; };
 		01820E4E20D209D40079063C /* HtmlParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlParser.swift; sourceTree = "<group>"; };
 		01820E5020D214B90079063C /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -93,12 +94,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		010E42BC22C936CB00AEB5D4 /* Animations */ = {
+		0153A31022DA896700BBBDA4 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				010E42BD22C9375700AEB5D4 /* xflame.mp4 */,
+				0153A31122DA897B00BBBDA4 /* HomeScreenController.swift */,
 			);
-			path = Animations;
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		0153A31322DA92D200BBBDA4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0153A31522DA939300BBBDA4 /* Raleway-Regular.ttf */,
+				0153A31422DA939300BBBDA4 /* Raleway-SemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		01820E2A20D2008A0079063C = {
@@ -122,10 +132,10 @@
 		01820E3520D2008A0079063C /* Morpheus */ = {
 			isa = PBXGroup;
 			children = (
-				9546999522CBDF5A00BE45B5 /* Components */,
+				0153A31322DA92D200BBBDA4 /* Fonts */,
+				0153A31022DA896700BBBDA4 /* HomeScreen */,
 				9546997822CAC3CF00BE45B5 /* Animations */,
 				01B310A222C954FC0092F110 /* Browser */,
-				010E42BC22C936CB00AEB5D4 /* Animations */,
 				01B310A522C957980092F110 /* SoundEffects */,
 				01B310AC22C9589D0092F110 /* SearchSpy */,
 				9546999922D4524D00BE45B5 /* Helpers */,
@@ -147,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				01820E4B20D208830079063C /* CacheBrowserController.swift */,
-				01820E4A20D208830079063C /* CacheBrowserController.xib */,
 				9546999322CB047300BE45B5 /* MultiDexController.swift */,
 			);
 			path = Browser;
@@ -198,15 +207,7 @@
 				9546998522CAC3CF00BE45B5 /* Animation3.json */,
 				9546999822CD137F00BE45B5 /* xflame.mp4 */,
 			);
-			name = Animations;
-			path = ../../xbrowser/Cake/Animations;
-			sourceTree = "<group>";
-		};
-		9546999522CBDF5A00BE45B5 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		9546999922D4524D00BE45B5 /* Helpers */ = {
@@ -259,6 +260,7 @@
 				TargetAttributes = {
 					01820E3220D2008A0079063C = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -294,14 +296,14 @@
 				01B310A922C957CC0092F110 /* powerup.mp3 in Resources */,
 				01B310A822C957CC0092F110 /* voices.mp3 in Resources */,
 				9546998E22CAC3D000BE45B5 /* Animation8.json in Resources */,
-				010E42BE22C9375D00AEB5D4 /* xflame.mp4 in Resources */,
+				0153A31622DA939300BBBDA4 /* Raleway-SemiBold.ttf in Resources */,
+				0153A31722DA939300BBBDA4 /* Raleway-Regular.ttf in Resources */,
 				01820E3E20D2008C0079063C /* Assets.xcassets in Resources */,
 				01820E3C20D2008A0079063C /* Main.storyboard in Resources */,
 				01B310AE22C958B00092F110 /* XBrowser.storyboard in Resources */,
 				9546999222CAC3D000BE45B5 /* Animation3.json in Resources */,
 				9546998D22CAC3D000BE45B5 /* Animation4.json in Resources */,
 				9546998622CAC3D000BE45B5 /* Animation0.json in Resources */,
-				01820E4C20D208830079063C /* CacheBrowserController.xib in Resources */,
 				9546999022CAC3D000BE45B5 /* Animation5.json in Resources */,
 				9546998722CAC3D000BE45B5 /* SearchBackground.json in Resources */,
 				9546998F22CAC3D000BE45B5 /* Animation9.json in Resources */,
@@ -360,9 +362,9 @@
 				01820E4920D2084B0079063C /* BrowserContainerController.swift in Sources */,
 				9546999B22D4526C00BE45B5 /* HydrationHelper.swift in Sources */,
 				01820E5320D21BFF0079063C /* SearchPopupController.swift in Sources */,
+				0153A31222DA897B00BBBDA4 /* HomeScreenController.swift in Sources */,
 				01820E3920D2008A0079063C /* ViewController.swift in Sources */,
 				01820E3720D2008A0079063C /* AppDelegate.swift in Sources */,
-				01820E4F20D209D40079063C /* HtmlParser.swift in Sources */,
 				01820E4D20D208830079063C /* CacheBrowserController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,7 +519,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dennis.personal.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -536,7 +538,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dennis.personal.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

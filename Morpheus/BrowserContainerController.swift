@@ -8,7 +8,7 @@
 
 import UIKit
 import AVKit
-import SwiftVideoBackground
+//import SwiftVideoBackground
 import WebKit
 
 class SearchItem {
@@ -47,12 +47,14 @@ class BrowserContainerController: UIViewController {
     @IBOutlet weak var resultsScrollView: UIScrollView!
     @IBOutlet weak var toolView: UIView!
     @IBOutlet weak var multiDexContainerView: UIView!
+    @IBOutlet weak var homeScreenContainerView: UIView!
     
     @IBOutlet weak var toolViewContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var magicButton: UIButton!
     
     var indexBrowser = CacheBrowserController();
     var multiDexController:MultiDexController?
+    var homeScreenController:HomeScreenController?
     
     var searchResults = [SearchItem]()
     var pageTitles = [String: String]()
@@ -94,7 +96,7 @@ class BrowserContainerController: UIViewController {
         super.viewDidLoad()
         
         toolView.addBorders(edges: [.top], color: UIColor.lightGray)
-        try? VideoBackground.shared.play(view: toolView, videoName: "xflame", videoType: "mp4")
+//        try? VideoBackground.shared.play(view: toolView, videoName: "xflame", videoType: "mp4")
         
         toolViewContainerHeightConstraint.constant = toolBarHeight
         
@@ -123,7 +125,6 @@ class BrowserContainerController: UIViewController {
         multiDexContainerView.frame = CGRect(x: 0.0, y: safeY, width: containerFrame.width, height: containerFrame.height - toolBarHeight - safeY)
         
         addGestureRecognizers()
-        
         let bootstrapData = HydrationHelper.instance.getBootstrapData()
         
         if (bootstrapData.tabs.keys.count == 0) {
@@ -144,14 +145,24 @@ class BrowserContainerController: UIViewController {
             showURLS()
         }
         
-        bootstrapData.showing == .multiDex ? showMultiDex() : showResults(index: bootstrapData.activeBrowser)
-        
+        switch bootstrapData.showing {
+        case .browser:
+            showResults(index: bootstrapData.activeBrowser)
+        case .multiDex:
+            showMultiDex()
+        default:
+            showSearch()
+        }
         
     }
     
     
+    override var prefersStatusBarHidden: Bool {
+        return barsHidden
+    }
     
     func showResults(index:Int) {
+        hideHome()
         let containerFrame = view.frame
         resultsScrollView.frame = CGRect(x: 0.0, y: 0.0, width: containerFrame.width, height: containerFrame.height - toolBarHeight)
         resultsScrollView.setContentOffset(CGPoint(x: (view.bounds.width * CGFloat(index)), y: 0), animated: false)
@@ -160,17 +171,31 @@ class BrowserContainerController: UIViewController {
     }
     
     func showMultiDex() {
+        hideHome()
         let containerFrame = view.frame
-        let safeY = UIApplication.shared.keyWindow!.safeAreaInsets.top
         resultsScrollView.frame = CGRect(x: 0.0, y: containerFrame.height, width: containerFrame.width, height: containerFrame.height - toolBarHeight)
         multiDexContainerView.isHidden = false
         HydrationHelper.instance.setShowing(viewState: .multiDex)
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return barsHidden
+    @objc func showSearch() {
+        HydrationHelper.instance.setShowing(viewState: .homeScreen)
+        let safeArea = UIApplication.shared.keyWindow!.safeAreaInsets
+        homeScreenController?.setInsets(top: safeArea.top, bottom: toolBarHeight)
+        homeScreenContainerView.isHidden = false
+        UIView.animate(withDuration: 0.2, animations: { [weak self] in
+            self?.homeScreenContainerView.alpha = 1.0
+        })
+        
     }
     
+    func hideHome() {
+        UIView.animate(withDuration: 0.2, animations: { [weak self] in
+            self?.homeScreenContainerView.alpha = 0.0
+        }, completion: { [weak self] _ in
+            self?.homeScreenContainerView.isHidden = true
+        })
+    }
     
     func addGestureRecognizers() {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(magicButtonTapped))
@@ -186,12 +211,6 @@ class BrowserContainerController: UIViewController {
         
     }
     
-    @objc func showSearch() {
-        if let searchController = storyboard?.instantiateViewController(withIdentifier: "searchController") as? SearchPopupController {
-            searchController.delegate = self
-            present(searchController, animated: true, completion: nil)
-        }
-    }
     
     @objc func penguinSwiped(gestureRecognizer: UISwipeGestureRecognizer) {
         showSearch()
@@ -277,6 +296,12 @@ class BrowserContainerController: UIViewController {
                 //Some property on ChildVC that needs to be set
                 childVC.engineDelegate = self
                 multiDexController = childVC
+            }
+        } else if segue.identifier == "homeScreenSegue" {
+            if let childVC = segue.destination as? HomeScreenController {
+                //Some property on ChildVC that needs to be set
+                childVC.searchDelegate = self
+                homeScreenController = childVC
             }
         }
     }

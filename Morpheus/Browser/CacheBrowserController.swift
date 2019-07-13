@@ -8,7 +8,6 @@
 
 import UIKit
 import WebKit
-import NVActivityIndicatorView
 
 
 protocol ScreenshotDelegate {
@@ -32,8 +31,6 @@ class CacheBrowserController: UIViewController {
     var engineIndex = 0
     var screenshotTimer:Timer?
     var lastScreenshotDate = Date()
-    
-    @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     
     var url:URL? {
         didSet {
@@ -145,7 +142,7 @@ class CacheBrowserController: UIViewController {
             if navigationAction.targetFrame == nil {
                 if targetURL.description.lowercased().range(of: "http://") == nil && targetURL.description.lowercased().range(of: "https://") ==  nil {
                     if UIApplication.shared.canOpenURL(targetURL) {
-                        UIApplication.shared.openURL(targetURL)
+                        UIApplication.shared.open(targetURL, options: [:], completionHandler: nil)
                     }
                 } else {
                     webview?.load(navigationAction.request)

@@ -16,6 +16,7 @@ struct BootstrapData {
 }
 
 enum ViewState:Int {
+    case homeScreen
     case multiDex
     case browser
 }
@@ -58,13 +59,13 @@ class HydrationHelper {
     func getBootstrapData()->BootstrapData {
         if let decoded  = UserDefaults.standard.object(forKey: "UserTabs") as? Data,
         let decodedTabs = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? Dictionary<Int, Dictionary<Int, String>> {
-            let viewState = ViewState(rawValue: UserDefaults.standard.integer(forKey: "ViewState")) ?? ViewState.multiDex
+            let viewState = ViewState(rawValue: UserDefaults.standard.integer(forKey: "ViewState")) ?? ViewState.homeScreen
             let activeTab = UserDefaults.standard.integer(forKey: "ActiveTab")
             let activeBrowser = UserDefaults.standard.integer(forKey: "ActiveBrowser")
         
             return BootstrapData(showing: viewState, activeTab: activeTab, activeBrowser: activeBrowser, tabs: decodedTabs)
         } else {
-            return BootstrapData(showing: .multiDex, activeTab: 0, activeBrowser: 0, tabs: Dictionary<Int, Dictionary<Int, String>>())
+            return BootstrapData(showing: .homeScreen, activeTab: 0, activeBrowser: 0, tabs: Dictionary<Int, Dictionary<Int, String>>())
         }
     }
     
