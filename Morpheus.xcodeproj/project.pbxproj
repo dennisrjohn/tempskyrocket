@@ -10,6 +10,11 @@
 		0153A31222DA897B00BBBDA4 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A31122DA897B00BBBDA4 /* HomeScreenController.swift */; };
 		0153A31622DA939300BBBDA4 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0153A31422DA939300BBBDA4 /* Raleway-SemiBold.ttf */; };
 		0153A31722DA939300BBBDA4 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0153A31522DA939300BBBDA4 /* Raleway-Regular.ttf */; };
+		0153A31922DBD62900BBBDA4 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A31822DBD62900BBBDA4 /* UserProfileController.swift */; };
+		0153A32522DBE0CB00BBBDA4 /* ProfileSuggestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A32422DBE0CB00BBBDA4 /* ProfileSuggestionController.swift */; };
+		0153A32822DBE47C00BBBDA4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A32722DBE47C00BBBDA4 /* UIView.swift */; };
+		0153A32A22DEB6BE00BBBDA4 /* ProfileSuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A32922DEB6BE00BBBDA4 /* ProfileSuggestionCell.swift */; };
+		0153A32D22DEB8B300BBBDA4 /* SuggestedProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A32C22DEB8B300BBBDA4 /* SuggestedProfile.swift */; };
 		01820E3720D2008A0079063C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E3620D2008A0079063C /* AppDelegate.swift */; };
 		01820E3920D2008A0079063C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E3820D2008A0079063C /* ViewController.swift */; };
 		01820E3C20D2008A0079063C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01820E3A20D2008A0079063C /* Main.storyboard */; };
@@ -45,6 +50,11 @@
 		0153A31122DA897B00BBBDA4 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
 		0153A31422DA939300BBBDA4 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
 		0153A31522DA939300BBBDA4 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
+		0153A31822DBD62900BBBDA4 /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		0153A32422DBE0CB00BBBDA4 /* ProfileSuggestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSuggestionController.swift; sourceTree = "<group>"; };
+		0153A32722DBE47C00BBBDA4 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		0153A32922DEB6BE00BBBDA4 /* ProfileSuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSuggestionCell.swift; sourceTree = "<group>"; };
+		0153A32C22DEB8B300BBBDA4 /* SuggestedProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedProfile.swift; sourceTree = "<group>"; };
 		01820E3320D2008A0079063C /* Morpheus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morpheus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01820E3620D2008A0079063C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01820E3820D2008A0079063C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				0153A31122DA897B00BBBDA4 /* HomeScreenController.swift */,
+				0153A31822DBD62900BBBDA4 /* UserProfileController.swift */,
+				0153A32422DBE0CB00BBBDA4 /* ProfileSuggestionController.swift */,
+				0153A32922DEB6BE00BBBDA4 /* ProfileSuggestionCell.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -109,6 +122,22 @@
 				0153A31422DA939300BBBDA4 /* Raleway-SemiBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		0153A32622DBE46B00BBBDA4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0153A32722DBE47C00BBBDA4 /* UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0153A32B22DEB8A200BBBDA4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0153A32C22DEB8B300BBBDA4 /* SuggestedProfile.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		01820E2A20D2008A0079063C = {
@@ -132,6 +161,8 @@
 		01820E3520D2008A0079063C /* Morpheus */ = {
 			isa = PBXGroup;
 			children = (
+				0153A32B22DEB8A200BBBDA4 /* Models */,
+				0153A32622DBE46B00BBBDA4 /* Extensions */,
 				0153A31322DA92D200BBBDA4 /* Fonts */,
 				0153A31022DA896700BBBDA4 /* HomeScreen */,
 				9546997822CAC3CF00BE45B5 /* Animations */,
@@ -358,11 +389,16 @@
 			files = (
 				01820E5120D214B90079063C /* UIViewExtension.swift in Sources */,
 				9546999422CB047300BE45B5 /* MultiDexController.swift in Sources */,
+				0153A32522DBE0CB00BBBDA4 /* ProfileSuggestionController.swift in Sources */,
 				01B310AB22C958790092F110 /* SearchSpyViewController.swift in Sources */,
 				01820E4920D2084B0079063C /* BrowserContainerController.swift in Sources */,
 				9546999B22D4526C00BE45B5 /* HydrationHelper.swift in Sources */,
+				0153A31922DBD62900BBBDA4 /* UserProfileController.swift in Sources */,
 				01820E5320D21BFF0079063C /* SearchPopupController.swift in Sources */,
+				0153A32D22DEB8B300BBBDA4 /* SuggestedProfile.swift in Sources */,
+				0153A32A22DEB6BE00BBBDA4 /* ProfileSuggestionCell.swift in Sources */,
 				0153A31222DA897B00BBBDA4 /* HomeScreenController.swift in Sources */,
+				0153A32822DBE47C00BBBDA4 /* UIView.swift in Sources */,
 				01820E3920D2008A0079063C /* ViewController.swift in Sources */,
 				01820E3720D2008A0079063C /* AppDelegate.swift in Sources */,
 				01820E4D20D208830079063C /* CacheBrowserController.swift in Sources */,

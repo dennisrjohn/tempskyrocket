@@ -11,6 +11,9 @@ import UIKit
 class HomeScreenController: UIViewController {
 
     @IBOutlet weak var searchInput: UITextField!
+    @IBOutlet weak var profileContainer: UIView!
+    @IBOutlet weak var profileSuggestionsContainer: UIView!
+    @IBOutlet weak var suggestionHeightConstraint: NSLayoutConstraint!
     
     var searchDelegate:SearchDelegate?
     @IBOutlet weak var scrollViewTopConstraint: NSLayoutConstraint!
@@ -27,15 +30,18 @@ class HomeScreenController: UIViewController {
         searchInput.delegate = self
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "suggestionsSegue" {
+            if let childVC = segue.destination as? ProfileSuggestionController {
+                
+                let areaWidth = view.bounds.width - 64.0
+                let cellWidth = areaWidth / 3.0
+                
+                childVC.cellWidth = cellWidth
+                
+            }
+        }
     }
-    */
 
 }
 

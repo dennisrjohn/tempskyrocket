@@ -9,4 +9,5 @@ target 'Morpheus' do
   pod 'Alamofire', '~>5.0.0-beta.6'
   pod 'lottie-ios', '~> 3.0.0'
   pod 'AuthorizeMe', '~>1.2.2'
+  pod 'Nuke', '~> 8.0'
 end
