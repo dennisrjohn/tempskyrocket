@@ -13,9 +13,6 @@
         <array key="Raleway-Regular.ttf">
             <string>Raleway-Regular</string>
         </array>
-        <array key="Raleway-SemiBold.ttf">
-            <string>Raleway-SemiBold</string>
-        </array>
     </customFonts>
     <scenes>
         <!--Navigation Controller-->
@@ -353,8 +350,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u9u-Gu-ob7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="n0G-cc-m4U">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="410"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="n0G-cc-m4U">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="442"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search or Website" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YuW-Uh-gnS">
                                                 <rect key="frame" x="48" y="0.0" width="279" height="30"/>
@@ -363,7 +360,7 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="go" textContentType="url"/>
                                             </textField>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CsJ-gs-wRB">
-                                                <rect key="frame" x="32" y="38" width="311" height="64"/>
+                                                <rect key="frame" x="32" y="54" width="311" height="64"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="64" id="0JH-cw-jty"/>
                                                 </constraints>
@@ -372,7 +369,8 @@
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jd-bu-BQw">
-                                                <rect key="frame" x="32" y="110" width="311" height="300"/>
+                                                <rect key="frame" x="32" y="142" width="311" height="300"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="5DB-2V-u3K"/>
                                                 </constraints>
@@ -412,6 +410,7 @@
                             <constraint firstItem="u9u-Gu-ob7" firstAttribute="top" secondItem="r87-TW-6Vg" secondAttribute="top" id="oWO-X5-cr9"/>
                             <constraint firstAttribute="trailing" secondItem="vHP-Ar-f6n" secondAttribute="trailing" id="tSW-dM-bSt"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="JFh-5t-k0V"/>
                     </view>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
@@ -444,48 +443,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profileSuggestionCell" id="DOb-Im-t24" customClass="ProfileSuggestionCell" customModule="Morpheus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="135"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="135"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YlK-tb-kPr">
-                                                    <rect key="frame" x="8" y="8" width="104" height="97"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="97" id="cfv-jz-Yem"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RtZ-ws-RFe">
-                                                    <rect key="frame" x="8" y="109" width="104" height="18"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="18" id="Odd-UR-mSh"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <color key="backgroundColor" red="0.60795987019999997" green="0.89999997620000005" blue="0.52731289339999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="RtZ-ws-RFe" secondAttribute="bottom" constant="8" id="0yc-Er-OFt"/>
-                                            <constraint firstItem="YlK-tb-kPr" firstAttribute="leading" secondItem="DOb-Im-t24" secondAttribute="leading" constant="8" id="Go5-vq-A3V"/>
-                                            <constraint firstAttribute="trailing" secondItem="RtZ-ws-RFe" secondAttribute="trailing" constant="8" id="KXD-7m-RlO"/>
-                                            <constraint firstAttribute="trailing" secondItem="YlK-tb-kPr" secondAttribute="trailing" constant="8" id="QPa-Qy-UR6"/>
-                                            <constraint firstItem="RtZ-ws-RFe" firstAttribute="top" secondItem="YlK-tb-kPr" secondAttribute="bottom" constant="4" id="Y2m-9B-bzF"/>
-                                            <constraint firstItem="RtZ-ws-RFe" firstAttribute="leading" secondItem="DOb-Im-t24" secondAttribute="leading" constant="8" id="p6F-cJ-pcR"/>
-                                            <constraint firstItem="YlK-tb-kPr" firstAttribute="top" secondItem="DOb-Im-t24" secondAttribute="top" constant="8" id="sbV-YH-C7s"/>
-                                        </constraints>
-                                        <size key="customSize" width="120" height="135"/>
-                                        <connections>
-                                            <outlet property="imageView" destination="YlK-tb-kPr" id="2br-LU-izK"/>
-                                            <outlet property="nameLabel" destination="RtZ-ws-RFe" id="xeR-jp-uHW"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -495,6 +453,7 @@
                             <constraint firstItem="utK-w8-ptE" firstAttribute="top" secondItem="Sw6-8f-V4O" secondAttribute="top" id="TvZ-qQ-g9A"/>
                             <constraint firstAttribute="bottom" secondItem="utK-w8-ptE" secondAttribute="bottom" id="p6H-Hq-n3J"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="ewS-z5-RES"/>
                     </view>
                     <connections>
                         <outlet property="profileCollectionView" destination="utK-w8-ptE" id="kHS-Zt-2yL"/>
@@ -512,6 +471,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="311" height="64"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="xzs-zj-sya"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fae-7k-tYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

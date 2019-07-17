@@ -2,7 +2,7 @@
 //  ProfileSuggestionCell.swift
 //  Morpheus
 //
-//  Created by Dennis John on 7/16/19.
+//  Created by Dennis John on 7/17/19.
 //  Copyright © 2019 Dennis John. All rights reserved.
 //
 
@@ -10,6 +10,7 @@ import UIKit
 import Nuke
 
 class ProfileSuggestionCell: UICollectionViewCell {
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -28,13 +29,15 @@ class ProfileSuggestionCell: UICollectionViewCell {
     }
     
     override func awakeFromNib() {
-//        imageView.layer.borderWidth = 1
-//        imageView.layer.masksToBounds = false
-//        imageView.layer.borderColor = UIColor.black.cgColor
-//        imageView.clipsToBounds = true
+        self.contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        imageView.layer.borderWidth = 1
+        imageView.layer.masksToBounds = false
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.clipsToBounds = true
     }
     
     override func layoutSubviews() {
-//        imageView.layer.cornerRadius = imageView.frame.height/2
+        imageView.layer.cornerRadius = imageView.frame.height/2
     }
+
 }

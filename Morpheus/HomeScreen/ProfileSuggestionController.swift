@@ -18,7 +18,7 @@ class ProfileSuggestionController: UIViewController {
     var suggestionMetricsDelegate:SuggestionMetricsDelegate?
     //need to calculate the cell height based on the width
     //so the image is square ;)
-    let padding:CGFloat = 48.0
+    let padding:CGFloat = 4.0
     let labelHeight:CGFloat = 18.0
     var cellHeight:CGFloat = 0.0
     var cellWidth:CGFloat = 0.0 {
@@ -38,6 +38,8 @@ class ProfileSuggestionController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let nib = UINib(nibName: "ProfileSuggestionCell", bundle: .main)
+        profileCollectionView.register(nib, forCellWithReuseIdentifier: "profileSuggestionCell")
         profileCollectionView.dataSource = self
         profileCollectionView.delegate = self
         profileCollectionView.reloadData()

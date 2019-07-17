@@ -13,7 +13,6 @@
 		0153A31922DBD62900BBBDA4 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A31822DBD62900BBBDA4 /* UserProfileController.swift */; };
 		0153A32522DBE0CB00BBBDA4 /* ProfileSuggestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A32422DBE0CB00BBBDA4 /* ProfileSuggestionController.swift */; };
 		0153A32822DBE47C00BBBDA4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A32722DBE47C00BBBDA4 /* UIView.swift */; };
-		0153A32A22DEB6BE00BBBDA4 /* ProfileSuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A32922DEB6BE00BBBDA4 /* ProfileSuggestionCell.swift */; };
 		0153A32D22DEB8B300BBBDA4 /* SuggestedProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A32C22DEB8B300BBBDA4 /* SuggestedProfile.swift */; };
 		01820E3720D2008A0079063C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E3620D2008A0079063C /* AppDelegate.swift */; };
 		01820E3920D2008A0079063C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E3820D2008A0079063C /* ViewController.swift */; };
@@ -43,6 +42,8 @@
 		9546999222CAC3D000BE45B5 /* Animation3.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546998522CAC3CF00BE45B5 /* Animation3.json */; };
 		9546999422CB047300BE45B5 /* MultiDexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546999322CB047300BE45B5 /* MultiDexController.swift */; };
 		9546999B22D4526C00BE45B5 /* HydrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546999A22D4526C00BE45B5 /* HydrationHelper.swift */; };
+		959BDA3A22DFB47E00491C2E /* ProfileSuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959BDA3822DFB47E00491C2E /* ProfileSuggestionCell.swift */; };
+		959BDA3B22DFB47E00491C2E /* ProfileSuggestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959BDA3922DFB47E00491C2E /* ProfileSuggestionCell.xib */; };
 		B2FCEC39AF9E37F5DBB48A33 /* Pods_Morpheus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3ECC176FF1F37DBC586ACA /* Pods_Morpheus.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +54,6 @@
 		0153A31822DBD62900BBBDA4 /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		0153A32422DBE0CB00BBBDA4 /* ProfileSuggestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSuggestionController.swift; sourceTree = "<group>"; };
 		0153A32722DBE47C00BBBDA4 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		0153A32922DEB6BE00BBBDA4 /* ProfileSuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSuggestionCell.swift; sourceTree = "<group>"; };
 		0153A32C22DEB8B300BBBDA4 /* SuggestedProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedProfile.swift; sourceTree = "<group>"; };
 		01820E3320D2008A0079063C /* Morpheus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morpheus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01820E3620D2008A0079063C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +88,8 @@
 		9546999322CB047300BE45B5 /* MultiDexController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiDexController.swift; sourceTree = "<group>"; };
 		9546999822CD137F00BE45B5 /* xflame.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = xflame.mp4; sourceTree = "<group>"; };
 		9546999A22D4526C00BE45B5 /* HydrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationHelper.swift; sourceTree = "<group>"; };
+		959BDA3822DFB47E00491C2E /* ProfileSuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSuggestionCell.swift; sourceTree = "<group>"; };
+		959BDA3922DFB47E00491C2E /* ProfileSuggestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSuggestionCell.xib; sourceTree = "<group>"; };
 		A9EB9312D54957F791833145 /* Pods-Morpheus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Morpheus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Morpheus/Pods-Morpheus.debug.xcconfig"; sourceTree = "<group>"; };
 		FEDB626F8716855D02111234 /* Pods-Morpheus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Morpheus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Morpheus/Pods-Morpheus.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,7 +112,8 @@
 				0153A31122DA897B00BBBDA4 /* HomeScreenController.swift */,
 				0153A31822DBD62900BBBDA4 /* UserProfileController.swift */,
 				0153A32422DBE0CB00BBBDA4 /* ProfileSuggestionController.swift */,
-				0153A32922DEB6BE00BBBDA4 /* ProfileSuggestionCell.swift */,
+				959BDA3822DFB47E00491C2E /* ProfileSuggestionCell.swift */,
+				959BDA3922DFB47E00491C2E /* ProfileSuggestionCell.xib */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				0153A31722DA939300BBBDA4 /* Raleway-Regular.ttf in Resources */,
 				01820E3E20D2008C0079063C /* Assets.xcassets in Resources */,
 				01820E3C20D2008A0079063C /* Main.storyboard in Resources */,
+				959BDA3B22DFB47E00491C2E /* ProfileSuggestionCell.xib in Resources */,
 				01B310AE22C958B00092F110 /* XBrowser.storyboard in Resources */,
 				9546999222CAC3D000BE45B5 /* Animation3.json in Resources */,
 				9546998D22CAC3D000BE45B5 /* Animation4.json in Resources */,
@@ -396,12 +400,12 @@
 				0153A31922DBD62900BBBDA4 /* UserProfileController.swift in Sources */,
 				01820E5320D21BFF0079063C /* SearchPopupController.swift in Sources */,
 				0153A32D22DEB8B300BBBDA4 /* SuggestedProfile.swift in Sources */,
-				0153A32A22DEB6BE00BBBDA4 /* ProfileSuggestionCell.swift in Sources */,
 				0153A31222DA897B00BBBDA4 /* HomeScreenController.swift in Sources */,
 				0153A32822DBE47C00BBBDA4 /* UIView.swift in Sources */,
 				01820E3920D2008A0079063C /* ViewController.swift in Sources */,
 				01820E3720D2008A0079063C /* AppDelegate.swift in Sources */,
 				01820E4D20D208830079063C /* CacheBrowserController.swift in Sources */,
+				959BDA3A22DFB47E00491C2E /* ProfileSuggestionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

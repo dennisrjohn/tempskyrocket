@@ -33,10 +33,13 @@ class HomeScreenController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "suggestionsSegue" {
             if let childVC = segue.destination as? ProfileSuggestionController {
+                let containerInsets:CGFloat = 32.0 * 2.0
+                let cellPadding:CGFloat = 16.0
                 
-                let areaWidth = view.bounds.width - 64.0
+                let areaWidth = view.bounds.width - (containerInsets + cellPadding)
                 let cellWidth = areaWidth / 3.0
                 
+                childVC.suggestionMetricsDelegate = self
                 childVC.cellWidth = cellWidth
                 
             }
@@ -49,5 +52,11 @@ extension HomeScreenController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchDelegate?.getResults(searchTerm: searchInput.text)
         return true
+    }
+}
+
+extension HomeScreenController: SuggestionMetricsDelegate {
+    func setHeight(_ height: CGFloat) {
+        suggestionHeightConstraint.constant = height * 2
     }
 }
