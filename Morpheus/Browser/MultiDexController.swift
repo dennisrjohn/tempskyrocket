@@ -114,11 +114,5 @@ class CellView:UIView {
         borderView.layer.borderWidth = 1.0
         borderView.layer.masksToBounds = true
         addSubview(borderView)
-        
-        // add any other subcontent that you want clipped
-        let otherSubContent = UIImageView()
-        otherSubContent.image = UIImage(named: "lion")
-        otherSubContent.frame = borderView.bounds
-        borderView.addSubview(otherSubContent)
     }
 }

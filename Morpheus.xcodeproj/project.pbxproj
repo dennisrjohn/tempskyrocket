@@ -44,6 +44,8 @@
 		9546999B22D4526C00BE45B5 /* HydrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546999A22D4526C00BE45B5 /* HydrationHelper.swift */; };
 		959BDA3A22DFB47E00491C2E /* ProfileSuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959BDA3822DFB47E00491C2E /* ProfileSuggestionCell.swift */; };
 		959BDA3B22DFB47E00491C2E /* ProfileSuggestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959BDA3922DFB47E00491C2E /* ProfileSuggestionCell.xib */; };
+		959BDA3D22DFBEBA00491C2E /* ProfileHeaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959BDA3C22DFBEBA00491C2E /* ProfileHeaderController.swift */; };
+		959BDA3F22DFD4FC00491C2E /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959BDA3E22DFD4FC00491C2E /* SearchField.swift */; };
 		B2FCEC39AF9E37F5DBB48A33 /* Pods_Morpheus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3ECC176FF1F37DBC586ACA /* Pods_Morpheus.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +92,8 @@
 		9546999A22D4526C00BE45B5 /* HydrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationHelper.swift; sourceTree = "<group>"; };
 		959BDA3822DFB47E00491C2E /* ProfileSuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSuggestionCell.swift; sourceTree = "<group>"; };
 		959BDA3922DFB47E00491C2E /* ProfileSuggestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSuggestionCell.xib; sourceTree = "<group>"; };
+		959BDA3C22DFBEBA00491C2E /* ProfileHeaderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderController.swift; sourceTree = "<group>"; };
+		959BDA3E22DFD4FC00491C2E /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		A9EB9312D54957F791833145 /* Pods-Morpheus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Morpheus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Morpheus/Pods-Morpheus.debug.xcconfig"; sourceTree = "<group>"; };
 		FEDB626F8716855D02111234 /* Pods-Morpheus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Morpheus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Morpheus/Pods-Morpheus.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +118,7 @@
 				0153A32422DBE0CB00BBBDA4 /* ProfileSuggestionController.swift */,
 				959BDA3822DFB47E00491C2E /* ProfileSuggestionCell.swift */,
 				959BDA3922DFB47E00491C2E /* ProfileSuggestionCell.xib */,
+				959BDA3C22DFBEBA00491C2E /* ProfileHeaderController.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				0153A32722DBE47C00BBBDA4 /* UIView.swift */,
+				959BDA3E22DFD4FC00491C2E /* SearchField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -397,6 +403,8 @@
 				01B310AB22C958790092F110 /* SearchSpyViewController.swift in Sources */,
 				01820E4920D2084B0079063C /* BrowserContainerController.swift in Sources */,
 				9546999B22D4526C00BE45B5 /* HydrationHelper.swift in Sources */,
+				959BDA3D22DFBEBA00491C2E /* ProfileHeaderController.swift in Sources */,
+				959BDA3F22DFD4FC00491C2E /* SearchField.swift in Sources */,
 				0153A31922DBD62900BBBDA4 /* UserProfileController.swift in Sources */,
 				01820E5320D21BFF0079063C /* SearchPopupController.swift in Sources */,
 				0153A32D22DEB8B300BBBDA4 /* SuggestedProfile.swift in Sources */,

@@ -30,14 +30,14 @@ class ProfileSuggestionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         self.contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        imageView.layer.borderWidth = 1
+        imageView.layer.borderWidth = 4
         imageView.layer.masksToBounds = false
-        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.borderColor = UIColor(red: 229.0/255.0, green: 234.0/255.0, blue: 50.0/255.0, alpha: 1.0).cgColor
         imageView.clipsToBounds = true
     }
     
     override func layoutSubviews() {
-        imageView.layer.cornerRadius = imageView.frame.height/2
+        imageView.layer.cornerRadius = (contentView.frame.width - 16.0)/2
     }
 
 }

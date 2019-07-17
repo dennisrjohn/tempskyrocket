@@ -34,7 +34,7 @@ class HomeScreenController: UIViewController {
         if segue.identifier == "suggestionsSegue" {
             if let childVC = segue.destination as? ProfileSuggestionController {
                 let containerInsets:CGFloat = 32.0 * 2.0
-                let cellPadding:CGFloat = 16.0
+                let cellPadding:CGFloat = 38.0
                 
                 let areaWidth = view.bounds.width - (containerInsets + cellPadding)
                 let cellWidth = areaWidth / 3.0
@@ -45,7 +45,6 @@ class HomeScreenController: UIViewController {
             }
         }
     }
-
 }
 
 extension HomeScreenController: UITextFieldDelegate {
