@@ -50,6 +50,7 @@ class HomeScreenController: UIViewController {
 extension HomeScreenController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchDelegate?.getResults(searchTerm: searchInput.text)
+        textField.resignFirstResponder()
         return true
     }
 }

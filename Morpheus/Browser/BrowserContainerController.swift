@@ -52,6 +52,8 @@ class BrowserContainerController: UIViewController {
     @IBOutlet weak var toolViewContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var magicButton: UIButton!
     
+    var browserTabDelegate:BrowserTabDelegate?
+    
     var indexBrowser = CacheBrowserController();
     var multiDexController:MultiDexController?
     var homeScreenController:HomeScreenController?
@@ -240,6 +242,7 @@ class BrowserContainerController: UIViewController {
     @IBAction func buttonThreeTapped(_ sender: Any) {
     }
     @IBAction func buttonFourTapped(_ sender: Any) {
+        browserTabDelegate?.showAllTabs()
     }
     
     

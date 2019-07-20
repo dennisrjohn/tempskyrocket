@@ -18,6 +18,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Gc1-We-aTe">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQ0-Oy-FjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController navigationBarHidden="YES" id="7c8-1j-keQ" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Ta-FY-vmy">
@@ -27,17 +28,60 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="IYQ-y9-znU" kind="relationship" relationship="rootViewController" id="ZUk-Gf-zad"/>
+                        <segue destination="hBF-sh-Lh5" kind="relationship" relationship="rootViewController" id="X72-tl-GXb"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fQ0-Oy-FjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-202" y="61"/>
+            <point key="canvasLocation" x="-761" y="-38"/>
+        </scene>
+        <!--Tab Container Controller-->
+        <scene sceneID="pZb-gS-cJn">
+            <objects>
+                <viewController id="hBF-sh-Lh5" customClass="TabContainerController" customModule="Morpheus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nup-Q5-wpR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="KeM-s9-vHu"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Svs-Uv-ixe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fnv-HN-JnY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25" y="-38"/>
+        </scene>
+        <!--Browser Tabs Controller-->
+        <scene sceneID="C9f-ci-WKs">
+            <objects>
+                <viewController storyboardIdentifier="browserTabs" id="7Q4-My-xbF" customClass="BrowserTabsController" customModule="Morpheus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cAA-uo-AQZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8A-gP-SAp">
+                                <rect key="frame" x="164.5" y="318.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="goToTab:" destination="7Q4-My-xbF" eventType="touchUpInside" id="nJ1-FT-ryF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="J8A-gP-SAp" firstAttribute="centerX" secondItem="cAA-uo-AQZ" secondAttribute="centerX" id="ctU-Vg-eJw"/>
+                            <constraint firstItem="J8A-gP-SAp" firstAttribute="centerY" secondItem="cAA-uo-AQZ" secondAttribute="centerY" id="fWQ-9r-o4Q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3pm-vA-8mN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b39-OX-ioS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="767" y="-41"/>
         </scene>
         <!--Browser Container Controller-->
         <scene sceneID="jVU-QQ-gwU">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="currentContext" id="IYQ-y9-znU" customClass="BrowserContainerController" customModule="Morpheus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="browserContainerController" extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="currentContext" id="IYQ-y9-znU" customClass="BrowserContainerController" customModule="Morpheus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ovA-vh-XMX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,81 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16U-YT-1Ib" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="642.39999999999998" y="60.719640179910051"/>
-        </scene>
-        <!--Search Popup Controller-->
-        <scene sceneID="th6-qS-b18">
-            <objects>
-                <viewController storyboardIdentifier="searchController" modalPresentationStyle="formSheet" id="bk9-3J-75i" customClass="SearchPopupController" customModule="Morpheus" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jyy-kk-SgC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="X1K-uE-CQV">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ve8-g1-hf6">
-                                <rect key="frame" x="34" y="269" width="305.5" height="128"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Are You Looking For?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yBd-DV-8tJ">
-                                        <rect key="frame" x="24" y="8" width="257.5" height="26"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="26" id="55b-4a-V2j"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a search term or URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f0v-kZ-ozJ">
-                                        <rect key="frame" x="24" y="52" width="257.5" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="4Bf-EU-xx2"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="webSearch"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tiZ-zA-90Y">
-                                        <rect key="frame" x="78.5" y="90" width="149" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="149" id="Fu4-eP-rDT"/>
-                                            <constraint firstAttribute="height" constant="30" id="lIK-UR-Ipf"/>
-                                        </constraints>
-                                        <state key="normal" title="Go"/>
-                                        <connections>
-                                            <action selector="goTapped:" destination="bk9-3J-75i" eventType="touchUpInside" id="70g-7n-QzD"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="f0v-kZ-ozJ" firstAttribute="top" secondItem="yBd-DV-8tJ" secondAttribute="bottom" constant="18" id="2Q5-LD-zuC"/>
-                                    <constraint firstItem="yBd-DV-8tJ" firstAttribute="leading" secondItem="Ve8-g1-hf6" secondAttribute="leading" constant="24" id="CSz-hf-Cdp"/>
-                                    <constraint firstAttribute="trailing" secondItem="f0v-kZ-ozJ" secondAttribute="trailing" constant="24" id="DwS-sc-6wI"/>
-                                    <constraint firstAttribute="bottom" secondItem="tiZ-zA-90Y" secondAttribute="bottom" constant="8" id="GZi-3w-d4f"/>
-                                    <constraint firstItem="yBd-DV-8tJ" firstAttribute="top" secondItem="Ve8-g1-hf6" secondAttribute="top" constant="8" id="Ry0-6k-9JA"/>
-                                    <constraint firstAttribute="trailing" secondItem="yBd-DV-8tJ" secondAttribute="trailing" constant="24" id="gqs-cG-AJZ"/>
-                                    <constraint firstItem="f0v-kZ-ozJ" firstAttribute="leading" secondItem="Ve8-g1-hf6" secondAttribute="leading" constant="24" id="hHR-cs-rwq"/>
-                                    <constraint firstAttribute="height" constant="128" id="jF4-hK-mGv"/>
-                                    <constraint firstItem="tiZ-zA-90Y" firstAttribute="top" secondItem="f0v-kZ-ozJ" secondAttribute="bottom" constant="8" id="tOW-fn-g4f"/>
-                                    <constraint firstItem="tiZ-zA-90Y" firstAttribute="centerX" secondItem="Ve8-g1-hf6" secondAttribute="centerX" id="tch-Hd-DFz"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.19855853873239437" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="X1K-uE-CQV" secondAttribute="trailing" id="FUX-6n-Wc2"/>
-                            <constraint firstItem="X1K-uE-CQV" firstAttribute="bottom" secondItem="jyy-kk-SgC" secondAttribute="bottom" id="Jwr-Ha-Bk0"/>
-                            <constraint firstItem="X1K-uE-CQV" firstAttribute="leading" secondItem="jyy-kk-SgC" secondAttribute="leading" id="NFp-qK-Nhg"/>
-                            <constraint firstItem="Ve8-g1-hf6" firstAttribute="top" secondItem="jyy-kk-SgC" secondAttribute="bottom" constant="-398" id="SV0-xj-L93"/>
-                            <constraint firstItem="X1K-uE-CQV" firstAttribute="top" secondItem="jyy-kk-SgC" secondAttribute="top" id="U7e-sN-hSr"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="iGV-q8-bex"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uwr-1F-jgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1738" y="1782"/>
+            <point key="canvasLocation" x="-2" y="824"/>
         </scene>
         <!--Multi Dex Controller-->
         <scene sceneID="KMd-3O-xgm">
@@ -334,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RSc-eV-BW6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1580" y="59.370314842578715"/>
+            <point key="canvasLocation" x="935" y="822"/>
         </scene>
         <!--Home Screen Controller-->
         <scene sceneID="0Qj-tf-94F">
@@ -427,7 +397,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6MU-kh-3qs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="640.79999999999995" y="857.72113943028489"/>
+            <point key="canvasLocation" x="-4" y="1621"/>
         </scene>
         <!--Profile Suggestion Controller-->
         <scene sceneID="rj1-fz-uiQ">
@@ -464,7 +434,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5J-6a-6xL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1400.8" y="1042.5787106446778"/>
+            <point key="canvasLocation" x="756" y="1805"/>
         </scene>
         <!--Profile Header Controller-->
         <scene sceneID="i9b-0J-g5t">
@@ -590,7 +560,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fae-7k-tYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1381.5999999999999" y="646.77661169415296"/>
+            <point key="canvasLocation" x="737" y="1410"/>
         </scene>
     </scenes>
     <resources>

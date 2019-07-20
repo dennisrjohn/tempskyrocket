@@ -14,8 +14,9 @@
 		0153A32522DBE0CB00BBBDA4 /* ProfileSuggestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A32422DBE0CB00BBBDA4 /* ProfileSuggestionController.swift */; };
 		0153A32822DBE47C00BBBDA4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A32722DBE47C00BBBDA4 /* UIView.swift */; };
 		0153A32D22DEB8B300BBBDA4 /* SuggestedProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A32C22DEB8B300BBBDA4 /* SuggestedProfile.swift */; };
+		0153A32F22E3818E00BBBDA4 /* TabContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A32E22E3818E00BBBDA4 /* TabContainerController.swift */; };
+		0153A33222E3840400BBBDA4 /* BrowserTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A33122E3840400BBBDA4 /* BrowserTabsController.swift */; };
 		01820E3720D2008A0079063C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E3620D2008A0079063C /* AppDelegate.swift */; };
-		01820E3920D2008A0079063C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01820E3820D2008A0079063C /* ViewController.swift */; };
 		01820E3C20D2008A0079063C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01820E3A20D2008A0079063C /* Main.storyboard */; };
 		01820E3E20D2008C0079063C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01820E3D20D2008C0079063C /* Assets.xcassets */; };
 		01820E4120D2008C0079063C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01820E3F20D2008C0079063C /* LaunchScreen.storyboard */; };
@@ -57,9 +58,10 @@
 		0153A32422DBE0CB00BBBDA4 /* ProfileSuggestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSuggestionController.swift; sourceTree = "<group>"; };
 		0153A32722DBE47C00BBBDA4 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0153A32C22DEB8B300BBBDA4 /* SuggestedProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedProfile.swift; sourceTree = "<group>"; };
+		0153A32E22E3818E00BBBDA4 /* TabContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainerController.swift; sourceTree = "<group>"; };
+		0153A33122E3840400BBBDA4 /* BrowserTabsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserTabsController.swift; sourceTree = "<group>"; };
 		01820E3320D2008A0079063C /* Morpheus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morpheus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01820E3620D2008A0079063C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		01820E3820D2008A0079063C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		01820E3B20D2008A0079063C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		01820E3D20D2008C0079063C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01820E4020D2008C0079063C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -149,6 +151,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		0153A33022E383DA00BBBDA4 /* BrowserTabs */ = {
+			isa = PBXGroup;
+			children = (
+				0153A33122E3840400BBBDA4 /* BrowserTabsController.swift */,
+			);
+			path = BrowserTabs;
+			sourceTree = "<group>";
+		};
 		01820E2A20D2008A0079063C = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +180,7 @@
 		01820E3520D2008A0079063C /* Morpheus */ = {
 			isa = PBXGroup;
 			children = (
+				0153A33022E383DA00BBBDA4 /* BrowserTabs */,
 				0153A32B22DEB8A200BBBDA4 /* Models */,
 				0153A32622DBE46B00BBBDA4 /* Extensions */,
 				0153A31322DA92D200BBBDA4 /* Fonts */,
@@ -180,12 +191,11 @@
 				01B310AC22C9589D0092F110 /* SearchSpy */,
 				9546999922D4524D00BE45B5 /* Helpers */,
 				01820E3620D2008A0079063C /* AppDelegate.swift */,
-				01820E3820D2008A0079063C /* ViewController.swift */,
+				0153A32E22E3818E00BBBDA4 /* TabContainerController.swift */,
 				01820E3A20D2008A0079063C /* Main.storyboard */,
 				01820E3D20D2008C0079063C /* Assets.xcassets */,
 				01820E3F20D2008C0079063C /* LaunchScreen.storyboard */,
 				01820E4220D2008C0079063C /* Info.plist */,
-				01820E4820D2084B0079063C /* BrowserContainerController.swift */,
 				01820E4E20D209D40079063C /* HtmlParser.swift */,
 				01820E5020D214B90079063C /* UIViewExtension.swift */,
 				01820E5220D21BFF0079063C /* SearchPopupController.swift */,
@@ -196,6 +206,7 @@
 		01B310A222C954FC0092F110 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				01820E4820D2084B0079063C /* BrowserContainerController.swift */,
 				01820E4B20D208830079063C /* CacheBrowserController.swift */,
 				9546999322CB047300BE45B5 /* MultiDexController.swift */,
 			);
@@ -399,6 +410,7 @@
 			files = (
 				01820E5120D214B90079063C /* UIViewExtension.swift in Sources */,
 				9546999422CB047300BE45B5 /* MultiDexController.swift in Sources */,
+				0153A33222E3840400BBBDA4 /* BrowserTabsController.swift in Sources */,
 				0153A32522DBE0CB00BBBDA4 /* ProfileSuggestionController.swift in Sources */,
 				01B310AB22C958790092F110 /* SearchSpyViewController.swift in Sources */,
 				01820E4920D2084B0079063C /* BrowserContainerController.swift in Sources */,
@@ -408,9 +420,9 @@
 				0153A31922DBD62900BBBDA4 /* UserProfileController.swift in Sources */,
 				01820E5320D21BFF0079063C /* SearchPopupController.swift in Sources */,
 				0153A32D22DEB8B300BBBDA4 /* SuggestedProfile.swift in Sources */,
+				0153A32F22E3818E00BBBDA4 /* TabContainerController.swift in Sources */,
 				0153A31222DA897B00BBBDA4 /* HomeScreenController.swift in Sources */,
 				0153A32822DBE47C00BBBDA4 /* UIView.swift in Sources */,
-				01820E3920D2008A0079063C /* ViewController.swift in Sources */,
 				01820E3720D2008A0079063C /* AppDelegate.swift in Sources */,
 				01820E4D20D208830079063C /* CacheBrowserController.swift in Sources */,
 				959BDA3A22DFB47E00491C2E /* ProfileSuggestionCell.swift in Sources */,
