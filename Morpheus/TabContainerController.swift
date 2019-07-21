@@ -11,27 +11,36 @@ import UIKit
 class TabContainerController: UIViewController {
 
     var currentControllerIndex = 0
+    var tabController:BrowserTabsController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addTabController()
-        startDefault()
+        setupTabController()
+        
+        let bootstrapTabs = HydrationHelper.instance.getBootstrapTabs()
+        
+        for (index, _) in bootstrapTabs.tabs.enumerated() {
+            addNewTab(index)
+        }
+        
+//        switchTab(toIndex: bootstrapTabs.activeTab)
     }
     
-    func addTabController() {
-        let tabController = storyboard!.instantiateViewController(withIdentifier: "browserTabs") as! BrowserTabsController
-        tabController.delegate = self
+    func setupTabController() {
+        tabController = storyboard!.instantiateViewController(withIdentifier: "browserTabs") as? BrowserTabsController
+        tabController!.delegate = self
         let frame = view.frame
-        add(tabController, frame: frame)
+        add(tabController!, frame: frame)
     }
     
-    func startDefault() {
-        let defaultTab = storyboard!.instantiateViewController(withIdentifier: "browserContainerController") as! BrowserContainerController
-        defaultTab.browserTabDelegate = self
+    func addNewTab(_ index:Int?) {
+        let newTab = storyboard!.instantiateViewController(withIdentifier: "browserContainerController") as! BrowserContainerController
+        newTab.browserTabDelegate = self
+        newTab.tabIndex = index ?? children.count - 1
         let frame = view.frame
-        add(defaultTab, frame: frame)
-        currentControllerIndex = 1
+        add(newTab, frame: frame)
+        currentControllerIndex = children.count - 1
     }
 
 }
@@ -44,6 +53,8 @@ extension TabContainerController: BrowserTabDelegate {
         let transitionTo = children[toIndex + 1]
         currentControllerIndex = toIndex + 1
         
+        HydrationHelper.instance.setActiveTab(index: toIndex)
+        
         transition(from: transitionFrom, to: transitionTo, duration: 0.0, options: .autoreverse, animations: nil, completion: nil)
         
     }
@@ -53,7 +64,19 @@ extension TabContainerController: BrowserTabDelegate {
         let transitionTo = children[0]
         currentControllerIndex = 0
         
+        var tabInfo = [TabInfo]()
+        //ignore the first child, it's the tab controller
+        for index in 1...children.count - 1 {
+            tabInfo.append(TabInfo(index: index, thumbnail: nil, title: nil))
+        }
+        tabController?.tabs = tabInfo
+        
         transition(from: transitionFrom, to: transitionTo, duration: 0.0, options: .autoreverse, animations: nil, completion: nil)
+    }
+    
+    func addTab() {
+        HydrationHelper.instance.addTab()
+        addNewTab(nil)
     }
 }
 

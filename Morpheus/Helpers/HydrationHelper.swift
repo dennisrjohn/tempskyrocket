@@ -8,14 +8,18 @@
 
 import Foundation
 
-struct BootstrapData {
-    var showing:ViewState
-    var activeTab:Int
-    var activeBrowser:Int
-    var tabs: Dictionary<Int, Dictionary<Int, String>>
+struct BootstrapData: Codable {
+    var activeTab:Int = 0 //the tab list view is index 0, so start on the first actual tab, which is index 1
+    var tabs: [TabData]
 }
 
-enum ViewState:Int {
+struct TabData: Codable {
+    var activeBrowser:Int = 0
+    var showing:ViewState = .homeScreen
+    var browserURLs = Dictionary<Int, String>()
+}
+
+enum ViewState:Int, Codable {
     case homeScreen
     case multiDex
     case browser
@@ -29,44 +33,71 @@ class HydrationHelper {
         
     }
     
-    func setUrl(forTab tab: Int, forBrowser browser: Int, url: String) {
-        let decoded  = UserDefaults.standard.object(forKey: "UserTabs") as? Data
-        var currentTabs = decoded != nil ? NSKeyedUnarchiver.unarchiveObject(with: decoded!) as? Dictionary<Int, Dictionary<Int, String>> : nil
-        
-        if currentTabs == nil {
-            currentTabs = Dictionary<Int, Dictionary<Int, String>>()
-        }
-        if currentTabs![tab] == nil {
-            currentTabs![tab] = Dictionary<Int, String>()
-        }
-        currentTabs![tab]![browser] = url
-        let encoded = NSKeyedArchiver.archivedData(withRootObject: currentTabs!)
-        UserDefaults.standard.set(encoded, forKey: "UserTabs")
+    func setUrl(forTab tabIndex: Int, forBrowser browser: Int, url: String) {
+        var decodedData = getDecodedData()
+        decodedData.tabs[tabIndex].browserURLs[browser] = url
+        save(data: decodedData)
+    }
+    
+    func addTab() {
+        var decodedData = getDecodedData()
+        let newTabData = TabData(activeBrowser: 0, showing: .homeScreen, browserURLs: Dictionary<Int, String>())
+        decodedData.tabs.append(newTabData)
+        decodedData.activeTab = decodedData.tabs.count - 1
+        save(data: decodedData)
     }
     
     func setActiveTab(index:Int) {
-        UserDefaults.standard.set(index, forKey: "ActiveTab")
+        var decodedData = getDecodedData()
+        decodedData.activeTab = index
+        save(data: decodedData)
     }
     
-    func setActiveBrowser(index:Int) {
-        UserDefaults.standard.set(index, forKey: "ActiveBrowser")
+    func setActiveBrowser(index:Int, forTab tabIndex:Int) {
+        var decodedData = getDecodedData()
+        decodedData.tabs[tabIndex].activeBrowser = index
+        save(data: decodedData)
     }
     
-    func setShowing(viewState:ViewState) {
-        UserDefaults.standard.set(viewState.rawValue, forKey: "ViewState")
+    func setShowing(viewState:ViewState, forTab tabIndex:Int) {
+        var decodedData = getDecodedData()
+        decodedData.tabs[tabIndex].showing = viewState
+        save(data: decodedData)
     }
     
-    func getBootstrapData()->BootstrapData {
-        if let decoded  = UserDefaults.standard.object(forKey: "UserTabs") as? Data,
-        let decodedTabs = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? Dictionary<Int, Dictionary<Int, String>> {
-            let viewState = ViewState(rawValue: UserDefaults.standard.integer(forKey: "ViewState")) ?? ViewState.homeScreen
-            let activeTab = UserDefaults.standard.integer(forKey: "ActiveTab")
-            let activeBrowser = UserDefaults.standard.integer(forKey: "ActiveBrowser")
-        
-            return BootstrapData(showing: viewState, activeTab: activeTab, activeBrowser: activeBrowser, tabs: decodedTabs)
+    func getBootstrapTabs()->BootstrapData {
+        return getDecodedData()
+    }
+    
+    func getBootstrapData(forTab tabIndex:Int)->TabData {
+        var decodedData = getDecodedData()
+        if decodedData.tabs.count > tabIndex {
+            return decodedData.tabs[tabIndex]
         } else {
-            return BootstrapData(showing: .homeScreen, activeTab: 0, activeBrowser: 0, tabs: Dictionary<Int, Dictionary<Int, String>>())
+            let newTabData = TabData(activeBrowser: 0, showing: .homeScreen, browserURLs: Dictionary<Int, String>())
+            decodedData.tabs.append(newTabData)
+            save(data: decodedData)
+            return newTabData
         }
+    }
+    
+    private func getDecodedData()->BootstrapData {
+        if let json  = UserDefaults.standard.object(forKey:  "BootstrapData") as? Data,
+            let decodedJSON = try? JSONDecoder().decode(BootstrapData?.self, from: json) {
+            return decodedJSON
+        }
+        let newTabData = TabData(activeBrowser: 0, showing: .homeScreen, browserURLs: Dictionary<Int, String>())
+        let initialData = BootstrapData(activeTab: 0, tabs: [newTabData])
+        save(data: initialData)
+        return initialData
+    }
+    
+    private func save(data:BootstrapData) {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .sortedKeys
+        let encoded = try! encoder.encode(data)
+//        let encoded = NSKeyedArchiver.archivedData(withRootObject: data)
+        UserDefaults.standard.set(encoded, forKey: "BootstrapData")
     }
     
 }
