@@ -24,7 +24,9 @@ class TabContainerController: UIViewController {
             addNewTab(index)
         }
         
-//        switchTab(toIndex: bootstrapTabs.activeTab)
+        if (currentControllerIndex - 1 != bootstrapTabs.activeTab){
+            switchTab(toIndex: bootstrapTabs.activeTab)
+        }
     }
     
     func setupTabController() {
@@ -71,7 +73,7 @@ extension TabContainerController: BrowserTabDelegate {
         }
         tabController?.tabs = tabInfo
         
-        transition(from: transitionFrom, to: transitionTo, duration: 0.0, options: .autoreverse, animations: nil, completion: nil)
+        transition(from: transitionFrom, to: transitionTo, duration: 0.0, options: .curveLinear, animations: nil, completion: nil)
     }
     
     func addTab() {
