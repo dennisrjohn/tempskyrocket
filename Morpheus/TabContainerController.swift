@@ -25,7 +25,11 @@ class TabContainerController: UIViewController {
         }
         
         if (currentControllerIndex - 1 != bootstrapTabs.activeTab){
-            switchTab(toIndex: bootstrapTabs.activeTab)
+            if (bootstrapTabs.activeTab == -1) {
+                showAllTabs()
+            } else {
+                switchTab(toIndex: bootstrapTabs.activeTab)
+            }
         }
         
         if let initialTab = children[currentControllerIndex] as? BrowserContainerController {
@@ -78,19 +82,33 @@ extension TabContainerController: BrowserTabDelegate {
         let transitionTo = children[0]
         currentControllerIndex = 0
         
+        HydrationHelper.instance.setActiveTab(index: -1)
+        
+        reloadTabView()
+        
+        transition(from: transitionFrom, to: transitionTo, duration: 0.0, options: .curveLinear, animations: nil, completion: nil)
+    }
+    
+    func reloadTabView() {
         var tabInfo = [TabInfo]()
         //ignore the first child, it's the tab controller
         for index in 1...children.count - 1 {
-            tabInfo.append(TabInfo(index: index, thumbnail: nil, title: nil))
+            let thumbnail = TabScreenshotHelper.instance.getSavedImage(forTab: index - 1)
+            tabInfo.append(TabInfo(index: index, thumbnail: thumbnail, title: nil))
         }
         tabController?.tabs = tabInfo
-        
-        transition(from: transitionFrom, to: transitionTo, duration: 0.0, options: .curveLinear, animations: nil, completion: nil)
     }
     
     func addTab() {
         HydrationHelper.instance.addTab()
         addNewTab(nil)
+    }
+    
+    func removeTab(at index: Int) {
+        let tabToRemove = children[index]//it's a tab index...
+        HydrationHelper.instance.deleteTab(atIndex: index - 1)
+        tabToRemove.remove()
+        reloadTabView()
     }
 }
 

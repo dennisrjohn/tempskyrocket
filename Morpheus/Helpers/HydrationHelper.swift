@@ -9,7 +9,7 @@
 import Foundation
 
 struct BootstrapData: Codable {
-    var activeTab:Int = 0 //the tab list view is index 0, so start on the first actual tab, which is index 1
+    var activeTab:Int = -1 //the tab list view is index 0, so start on the first actual tab, which is index 1
     var tabs: [TabData]
 }
 

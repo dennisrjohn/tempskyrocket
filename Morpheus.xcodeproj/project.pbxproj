@@ -28,6 +28,9 @@
 		01B310A922C957CC0092F110 /* powerup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01B310A722C957CC0092F110 /* powerup.mp3 */; };
 		01B310AB22C958790092F110 /* SearchSpyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B310AA22C958790092F110 /* SearchSpyViewController.swift */; };
 		01B310AE22C958B00092F110 /* XBrowser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01B310AD22C958B00092F110 /* XBrowser.storyboard */; };
+		95159B6222E91207000C24A7 /* TabScreenshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95159B6122E91207000C24A7 /* TabScreenshotHelper.swift */; };
+		95159B6B22E92258000C24A7 /* TabImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95159B6922E92258000C24A7 /* TabImageCell.swift */; };
+		95159B6C22E92258000C24A7 /* TabImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95159B6A22E92258000C24A7 /* TabImageCell.xib */; };
 		9546998622CAC3D000BE45B5 /* Animation0.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546997922CAC3CF00BE45B5 /* Animation0.json */; };
 		9546998722CAC3D000BE45B5 /* SearchBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546997A22CAC3CF00BE45B5 /* SearchBackground.json */; };
 		9546998822CAC3D000BE45B5 /* Animation1.json in Resources */ = {isa = PBXBuildFile; fileRef = 9546997B22CAC3CF00BE45B5 /* Animation1.json */; };
@@ -76,6 +79,9 @@
 		01B310AA22C958790092F110 /* SearchSpyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSpyViewController.swift; sourceTree = "<group>"; };
 		01B310AD22C958B00092F110 /* XBrowser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XBrowser.storyboard; sourceTree = "<group>"; };
 		4D3ECC176FF1F37DBC586ACA /* Pods_Morpheus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Morpheus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95159B6122E91207000C24A7 /* TabScreenshotHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabScreenshotHelper.swift; sourceTree = "<group>"; };
+		95159B6922E92258000C24A7 /* TabImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabImageCell.swift; sourceTree = "<group>"; };
+		95159B6A22E92258000C24A7 /* TabImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabImageCell.xib; sourceTree = "<group>"; };
 		9546997922CAC3CF00BE45B5 /* Animation0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation0.json; sourceTree = "<group>"; };
 		9546997A22CAC3CF00BE45B5 /* SearchBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SearchBackground.json; sourceTree = "<group>"; };
 		9546997B22CAC3CF00BE45B5 /* Animation1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation1.json; sourceTree = "<group>"; };
@@ -155,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				0153A33122E3840400BBBDA4 /* BrowserTabsController.swift */,
+				95159B6922E92258000C24A7 /* TabImageCell.swift */,
+				95159B6A22E92258000C24A7 /* TabImageCell.xib */,
 			);
 			path = BrowserTabs;
 			sourceTree = "<group>";
@@ -265,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				9546999A22D4526C00BE45B5 /* HydrationHelper.swift */,
+				95159B6122E91207000C24A7 /* TabScreenshotHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -347,6 +356,7 @@
 				01B310A922C957CC0092F110 /* powerup.mp3 in Resources */,
 				01B310A822C957CC0092F110 /* voices.mp3 in Resources */,
 				9546998E22CAC3D000BE45B5 /* Animation8.json in Resources */,
+				95159B6C22E92258000C24A7 /* TabImageCell.xib in Resources */,
 				0153A31622DA939300BBBDA4 /* Raleway-SemiBold.ttf in Resources */,
 				0153A31722DA939300BBBDA4 /* Raleway-Regular.ttf in Resources */,
 				01820E3E20D2008C0079063C /* Assets.xcassets in Resources */,
@@ -411,6 +421,7 @@
 				01820E5120D214B90079063C /* UIViewExtension.swift in Sources */,
 				9546999422CB047300BE45B5 /* MultiDexController.swift in Sources */,
 				0153A33222E3840400BBBDA4 /* BrowserTabsController.swift in Sources */,
+				95159B6B22E92258000C24A7 /* TabImageCell.swift in Sources */,
 				0153A32522DBE0CB00BBBDA4 /* ProfileSuggestionController.swift in Sources */,
 				01B310AB22C958790092F110 /* SearchSpyViewController.swift in Sources */,
 				01820E4920D2084B0079063C /* BrowserContainerController.swift in Sources */,
@@ -418,6 +429,7 @@
 				959BDA3D22DFBEBA00491C2E /* ProfileHeaderController.swift in Sources */,
 				959BDA3F22DFD4FC00491C2E /* SearchField.swift in Sources */,
 				0153A31922DBD62900BBBDA4 /* UserProfileController.swift in Sources */,
+				95159B6222E91207000C24A7 /* TabScreenshotHelper.swift in Sources */,
 				01820E5320D21BFF0079063C /* SearchPopupController.swift in Sources */,
 				0153A32D22DEB8B300BBBDA4 /* SuggestedProfile.swift in Sources */,
 				0153A32F22E3818E00BBBDA4 /* TabContainerController.swift in Sources */,

@@ -249,6 +249,11 @@ class BrowserContainerController: UIViewController {
     @IBAction func buttonThreeTapped(_ sender: Any) {
     }
     @IBAction func buttonFourTapped(_ sender: Any) {
+        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
+        let image = renderer.image { ctx in
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
+        _ = TabScreenshotHelper.instance.saveImage(image: image, forTab: tabIndex)
         browserTabDelegate?.showAllTabs()
     }
     

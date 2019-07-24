@@ -12,19 +12,19 @@ protocol BrowserTabDelegate {
     func switchTab(toIndex: Int)
     func showAllTabs()
     func addTab()
-    func removeTab()
+    func removeTab(at index:Int)
 }
 
 extension BrowserTabDelegate {
     func switchTab(toIndex: Int) {}
     func showAllTabs() {}
     func addTab() {}
-    func removeTab() {}
+    func removeTab(at index:Int) {}
 }
 
 struct TabInfo {
     var index:Int
-    var thumbnail:String?
+    var thumbnail:UIImage?
     var title:String?
 }
 
@@ -40,6 +40,9 @@ class BrowserTabsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nib = UINib(nibName: "TabImageCell", bundle: nil)
+        tabsCollectionView.register(nib, forCellWithReuseIdentifier: "tabCell")
         
         tabsCollectionView.dataSource = self
         tabsCollectionView.delegate = self
@@ -62,10 +65,12 @@ extension BrowserTabsController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! TabImageCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tabCell", for: indexPath) as! TabImageCell
         
         let tab = tabs[indexPath.row]
-        cell.titleLabel.text = String(tab.index)
+        cell.setImage(tab.thumbnail)
+        cell.delegate = delegate
+        cell.tabIndex = tab.index
         
         return cell
     }
@@ -87,18 +92,5 @@ extension BrowserTabsController: UICollectionViewDelegateFlowLayout {
         let imageHeight = (view.bounds.height * widthRatio) * 0.6
         
         return CGSize(width: imageWidth - 8, height: imageHeight)
-    }
-}
-
-class TabImageCell:UICollectionViewCell {
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var image: UIImageView!
-    
-    var currentImage:(date:Date, image:UIImage)?
-    
-    func setImageIfNecessary(_ image: (date:Date, image:UIImage?)) {
-        if (currentImage == nil || currentImage!.date < image.date) && image.image != nil {
-            self.image.image = image.image
-        }
     }
 }

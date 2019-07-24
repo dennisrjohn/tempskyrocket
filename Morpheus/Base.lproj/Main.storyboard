@@ -62,13 +62,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tabs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roO-sC-F0B">
-                                <rect key="frame" x="16" y="36" width="343" height="29"/>
+                                <rect key="frame" x="16" y="36" width="343" height="28"/>
                                 <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HVB-3a-Xxm">
-                                <rect key="frame" x="16" y="81" width="343" height="570"/>
+                                <rect key="frame" x="16" y="80" width="343" height="571"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PGa-4h-j0j">
                                     <size key="itemSize" width="50" height="50"/>
@@ -76,59 +76,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="k5z-s5-9fg" customClass="TabImageCell" customModule="Morpheus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLu-Lm-jzY" customClass="CellView" customModule="Morpheus" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="8" width="144" height="184"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x8I-Xf-LDo">
-                                                            <rect key="frame" x="0.0" y="0.0" width="144" height="160"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fg3-9Z-URF">
-                                                            <rect key="frame" x="0.0" y="160" width="144" height="24"/>
-                                                            <color key="backgroundColor" white="0.89519181910000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="24" id="KjL-Ev-JNj"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstItem="Fg3-9Z-URF" firstAttribute="top" secondItem="x8I-Xf-LDo" secondAttribute="bottom" id="05a-nt-oeN"/>
-                                                        <constraint firstAttribute="trailing" secondItem="x8I-Xf-LDo" secondAttribute="trailing" id="8yy-eu-kmx"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Fg3-9Z-URF" secondAttribute="bottom" id="Bqe-8W-7XP"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Fg3-9Z-URF" secondAttribute="trailing" id="GJr-UG-c66"/>
-                                                        <constraint firstItem="x8I-Xf-LDo" firstAttribute="top" secondItem="BLu-Lm-jzY" secondAttribute="top" id="Uiz-Bf-aWS"/>
-                                                        <constraint firstItem="x8I-Xf-LDo" firstAttribute="top" secondItem="BLu-Lm-jzY" secondAttribute="top" id="fcd-T5-I5I"/>
-                                                        <constraint firstItem="Fg3-9Z-URF" firstAttribute="leading" secondItem="BLu-Lm-jzY" secondAttribute="leading" id="we9-fM-rTi"/>
-                                                        <constraint firstItem="x8I-Xf-LDo" firstAttribute="leading" secondItem="BLu-Lm-jzY" secondAttribute="leading" id="yB9-Qt-yia"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="BLu-Lm-jzY" firstAttribute="top" secondItem="k5z-s5-9fg" secondAttribute="top" constant="8" id="4Uc-Sq-bxO"/>
-                                            <constraint firstItem="BLu-Lm-jzY" firstAttribute="leading" secondItem="k5z-s5-9fg" secondAttribute="leading" constant="8" id="4WL-k1-uVt"/>
-                                            <constraint firstAttribute="trailing" secondItem="BLu-Lm-jzY" secondAttribute="trailing" constant="8" id="W8t-RO-BbC"/>
-                                            <constraint firstAttribute="bottom" secondItem="BLu-Lm-jzY" secondAttribute="bottom" constant="8" id="bGN-Iv-pQg"/>
-                                        </constraints>
-                                        <size key="customSize" width="160" height="200"/>
-                                        <connections>
-                                            <outlet property="image" destination="x8I-Xf-LDo" id="Yyc-FD-bni"/>
-                                            <outlet property="titleLabel" destination="Fg3-9Z-URF" id="Mug-Ud-n4Y"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zu-wH-EVM">
                                 <rect key="frame" x="159" y="607" width="57" height="30"/>
