@@ -31,6 +31,7 @@ class CacheBrowserController: UIViewController {
     var engineIndex = 0
     var screenshotTimer:Timer?
     var lastScreenshotDate = Date()
+    var tabIndex = 0;
     
     var url:URL? {
         didSet {
@@ -39,7 +40,7 @@ class CacheBrowserController: UIViewController {
                     setupWebView()
                 }
                 if let urlString = url?.absoluteString {
-                    HydrationHelper.instance.setUrl(forTab: 0, forBrowser: engineIndex, url: urlString)
+                    HydrationHelper.instance.setUrl(forTab: tabIndex, forBrowser: engineIndex, url: urlString)
                 }
                 webview!.load(URLRequest(url: newURL))
             }
@@ -200,7 +201,7 @@ extension CacheBrowserController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if !isIndexBrowser {
             if let urlString = webView.url?.absoluteString {
-                HydrationHelper.instance.setUrl(forTab: 0, forBrowser: engineIndex, url: urlString)
+                HydrationHelper.instance.setUrl(forTab: tabIndex, forBrowser: engineIndex, url: urlString)
             }
             delegate?.setNavigation()
         }

@@ -29,6 +29,8 @@ class HydrationHelper {
     
     static var instance = HydrationHelper()
     
+    var data:BootstrapData?
+    
     private init() {
         
     }
@@ -36,7 +38,8 @@ class HydrationHelper {
     func setUrl(forTab tabIndex: Int, forBrowser browser: Int, url: String) {
         var decodedData = getDecodedData()
         decodedData.tabs[tabIndex].browserURLs[browser] = url
-        save(data: decodedData)
+        data = decodedData
+        save()
     }
     
     func addTab() {
@@ -44,25 +47,36 @@ class HydrationHelper {
         let newTabData = TabData(activeBrowser: 0, showing: .homeScreen, browserURLs: Dictionary<Int, String>())
         decodedData.tabs.append(newTabData)
         decodedData.activeTab = decodedData.tabs.count - 1
-        save(data: decodedData)
+        data = decodedData
+        save()
+    }
+    
+    func deleteTab(atIndex index: Int) {
+        var decodedData = getDecodedData()
+        decodedData.tabs.remove(at: index)
+        data = decodedData
+        save()
     }
     
     func setActiveTab(index:Int) {
         var decodedData = getDecodedData()
         decodedData.activeTab = index
-        save(data: decodedData)
+        data = decodedData
+        save()
     }
     
     func setActiveBrowser(index:Int, forTab tabIndex:Int) {
         var decodedData = getDecodedData()
         decodedData.tabs[tabIndex].activeBrowser = index
-        save(data: decodedData)
+        data = decodedData
+        save()
     }
     
     func setShowing(viewState:ViewState, forTab tabIndex:Int) {
         var decodedData = getDecodedData()
         decodedData.tabs[tabIndex].showing = viewState
-        save(data: decodedData)
+        data = decodedData
+        save()
     }
     
     func getBootstrapTabs()->BootstrapData {
@@ -76,23 +90,26 @@ class HydrationHelper {
         } else {
             let newTabData = TabData(activeBrowser: 0, showing: .homeScreen, browserURLs: Dictionary<Int, String>())
             decodedData.tabs.append(newTabData)
-            save(data: decodedData)
             return newTabData
         }
     }
     
     private func getDecodedData()->BootstrapData {
+        if let instanceData = data {
+            return instanceData
+        }
         if let json  = UserDefaults.standard.object(forKey:  "BootstrapData") as? Data,
             let decodedJSON = try? JSONDecoder().decode(BootstrapData?.self, from: json) {
+            data = decodedJSON
             return decodedJSON
         }
         let newTabData = TabData(activeBrowser: 0, showing: .homeScreen, browserURLs: Dictionary<Int, String>())
-        let initialData = BootstrapData(activeTab: 0, tabs: [newTabData])
-        save(data: initialData)
-        return initialData
+        data = BootstrapData(activeTab: 0, tabs: [newTabData])
+        save()
+        return data!
     }
     
-    private func save(data:BootstrapData) {
+    private func save() {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .sortedKeys
         let encoded = try! encoder.encode(data)

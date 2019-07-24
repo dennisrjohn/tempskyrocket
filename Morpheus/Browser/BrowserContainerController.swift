@@ -54,7 +54,7 @@ class BrowserContainerController: UIViewController {
     
     var browserTabDelegate:BrowserTabDelegate?
     
-    var indexBrowser = CacheBrowserController();
+//    var indexBrowser = CacheBrowserController();
     var multiDexController:MultiDexController?
     var homeScreenController:HomeScreenController?
     
@@ -95,6 +95,8 @@ class BrowserContainerController: UIViewController {
     var queueRunning = false
     var screenShotTimer:Timer?
     
+    var initted = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -105,10 +107,11 @@ class BrowserContainerController: UIViewController {
         
         resultsScrollView.delegate = self
         
-        indexBrowser.view.alpha = 0.0
+//        indexBrowser.view.alpha = 0.0
         
         for (index, _) in engines.enumerated() {
             let newBrowser = CacheBrowserController()
+            newBrowser.tabIndex = tabIndex
             newBrowser.engineIndex = index
             newBrowser.visibilityDelegate = self
             newBrowser.delegate = self
@@ -128,6 +131,9 @@ class BrowserContainerController: UIViewController {
         multiDexContainerView.frame = CGRect(x: 0.0, y: safeY, width: containerFrame.width, height: containerFrame.height - toolBarHeight - safeY)
         
         addGestureRecognizers()
+    }
+    
+    func initialize() {
         let bootstrapData = HydrationHelper.instance.getBootstrapData(forTab: tabIndex)
         
         if (bootstrapData.browserURLs.keys.count == 0) {
@@ -156,6 +162,7 @@ class BrowserContainerController: UIViewController {
             showSearch()
         }
         
+        initted = true
     }
     
     
@@ -547,15 +554,6 @@ extension BrowserContainerController: ScreenshotDelegate {
                         self?.processNextScreenshot()
 //                    })
                 })
-//                if let screenshot = self?.resultsScrollView.screenShot {
-//                    if (self?.queueRunning ?? false){
-//                        self?.multiDexController?.replaceImageAtIndex(index: nextScreen, image: (date: Date(), image: screenshot))
-//                        self?.screenShotTimer = Timer.scheduledTimer(withTimeInterval: 0.1
-//                            , repeats: false, block: {[weak self] timer in
-//                            self?.processNextScreenshot()
-//                        })
-//                    }
-//                }
             })
         } else {
             queueRunning = false

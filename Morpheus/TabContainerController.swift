@@ -27,6 +27,12 @@ class TabContainerController: UIViewController {
         if (currentControllerIndex - 1 != bootstrapTabs.activeTab){
             switchTab(toIndex: bootstrapTabs.activeTab)
         }
+        
+        if let initialTab = children[currentControllerIndex] as? BrowserContainerController {
+            if !initialTab.initted {
+                initialTab.initialize()
+            }
+        }
     }
     
     func setupTabController() {
@@ -54,6 +60,12 @@ extension TabContainerController: BrowserTabDelegate {
         let transitionFrom = children[currentControllerIndex]
         let transitionTo = children[toIndex + 1]
         currentControllerIndex = toIndex + 1
+        
+        if let newController = transitionTo as? BrowserContainerController {
+            if !newController.initted {
+                newController.initialize()
+            }
+        }
         
         HydrationHelper.instance.setActiveTab(index: toIndex)
         
