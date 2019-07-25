@@ -46,13 +46,16 @@ class TabContainerController: UIViewController {
         add(tabController!, frame: frame)
     }
     
-    func addNewTab(_ index:Int?) {
+    func addNewTab(_ index:Int?, initialize: Bool = false) {
         let newTab = storyboard!.instantiateViewController(withIdentifier: "browserContainerController") as! BrowserContainerController
         newTab.browserTabDelegate = self
         newTab.tabIndex = index ?? children.count - 1
         let frame = view.frame
         add(newTab, frame: frame)
         currentControllerIndex = children.count - 1
+        if (initialize) {
+            newTab.initialize()
+        }
     }
 
 }
@@ -92,16 +95,18 @@ extension TabContainerController: BrowserTabDelegate {
     func reloadTabView() {
         var tabInfo = [TabInfo]()
         //ignore the first child, it's the tab controller
-        for index in 1...children.count - 1 {
-            let thumbnail = TabScreenshotHelper.instance.getSavedImage(forTab: index - 1)
-            tabInfo.append(TabInfo(index: index, thumbnail: thumbnail, title: nil))
+        if children.count > 1 {
+            for index in 1...children.count - 1 {
+                let thumbnail = TabScreenshotHelper.instance.getSavedImage(forTab: index - 1)
+                tabInfo.append(TabInfo(index: index, thumbnail: thumbnail, title: nil))
+            }
         }
         tabController?.tabs = tabInfo
     }
     
     func addTab() {
         HydrationHelper.instance.addTab()
-        addNewTab(nil)
+        addNewTab(nil, initialize: true)
     }
     
     func removeTab(at index: Int) {

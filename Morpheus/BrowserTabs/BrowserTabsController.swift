@@ -30,16 +30,21 @@ struct TabInfo {
 
 class BrowserTabsController: UIViewController {
 
+    @IBOutlet weak var tabsCollectionView: UICollectionView!
+    @IBOutlet weak var addTabButton: UIButton!
+    
     var delegate:BrowserTabDelegate?
     var tabs = [TabInfo]() {
         didSet {
             tabsCollectionView.reloadData()
         }
     }
-    @IBOutlet weak var tabsCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addTabButton.layer.masksToBounds = true
+        addTabButton.layer.cornerRadius = 5.0
         
         let nib = UINib(nibName: "TabImageCell", bundle: nil)
         tabsCollectionView.register(nib, forCellWithReuseIdentifier: "tabCell")
@@ -89,8 +94,8 @@ extension BrowserTabsController: UICollectionViewDelegateFlowLayout {
         
         let imageWidth = (tabsCollectionView.bounds.width / 2) //4 pixels padding on each side of the cell
         let widthRatio = imageWidth / view.bounds.width
-        let imageHeight = (view.bounds.height * widthRatio) * 0.6
+        let imageHeight = (view.bounds.height * widthRatio)
         
-        return CGSize(width: imageWidth - 8, height: imageHeight)
+        return CGSize(width: imageWidth, height: imageHeight)
     }
 }

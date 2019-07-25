@@ -38,4 +38,13 @@ class TabScreenshotHelper {
         }
         return nil
     }
+    
+    func moveScreenshot(fromIndex:Int, toIndex:Int) {
+        if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
+            let fromURL = URL(fileURLWithPath: dir.absoluteString).appendingPathComponent("tab\(fromIndex).png")
+            let toURL = URL(fileURLWithPath: dir.absoluteString).appendingPathComponent("tab\(toIndex).png")
+            try? FileManager.default.removeItem(at: toURL)
+            try? FileManager.default.moveItem(at: fromURL, to: toURL)
+        }
+    }
 }

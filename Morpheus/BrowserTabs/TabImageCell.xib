@@ -17,42 +17,69 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="TabImageCell" customModule="Morpheus" customModuleProvider="target">
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="TabImageCell" customModule="Morpheus" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="225" height="238"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="225" height="238"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jik-Gq-sJz">
-                        <rect key="frame" x="131" y="220" width="86" height="18"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NyJ-jO-Tbg" customClass="CellView" customModule="Morpheus" customModuleProvider="target">
+                        <rect key="frame" x="8" y="8" width="209" height="222"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X5E-ne-PDd">
+                                <rect key="frame" x="0.0" y="0.0" width="209" height="222"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L37-4P-Hxw">
+                                <rect key="frame" x="163" y="0.0" width="46" height="24"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="eLo-Yj-6Yy"/>
+                                    <constraint firstAttribute="width" constant="46" id="f6P-5h-8go"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="X5E-ne-PDd" secondAttribute="bottom" id="9lO-0a-Y06"/>
+                            <constraint firstItem="X5E-ne-PDd" firstAttribute="top" secondItem="NyJ-jO-Tbg" secondAttribute="top" id="D44-Py-rXk"/>
+                            <constraint firstAttribute="trailing" secondItem="X5E-ne-PDd" secondAttribute="trailing" id="FD5-rX-Vzg"/>
+                            <constraint firstAttribute="trailing" secondItem="L37-4P-Hxw" secondAttribute="trailing" id="GS9-td-AoR"/>
+                            <constraint firstItem="X5E-ne-PDd" firstAttribute="leading" secondItem="NyJ-jO-Tbg" secondAttribute="leading" id="Quu-8i-soG"/>
+                            <constraint firstItem="L37-4P-Hxw" firstAttribute="top" secondItem="NyJ-jO-Tbg" secondAttribute="top" id="ZZn-aL-58z"/>
+                            <constraint firstItem="X5E-ne-PDd" firstAttribute="leading" secondItem="NyJ-jO-Tbg" secondAttribute="leading" id="mqF-Kr-xbe"/>
+                            <constraint firstItem="X5E-ne-PDd" firstAttribute="top" secondItem="NyJ-jO-Tbg" secondAttribute="top" id="pyi-Rq-arg"/>
+                            <constraint firstAttribute="trailing" secondItem="X5E-ne-PDd" secondAttribute="trailing" id="qg1-ne-7KM"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jik-Gq-sJz">
+                        <rect key="frame" x="166" y="12" width="43" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="43" id="1MC-lf-gyX"/>
                             <constraint firstAttribute="height" constant="18" id="bQD-zt-4fZ"/>
-                            <constraint firstAttribute="width" constant="86" id="cXO-Bu-U87"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="12"/>
-                        <state key="normal" title="Button"/>
+                        <state key="normal" title="Close">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
                         <connections>
-                            <action selector="closeTab:" destination="gTV-IL-0wX" eventType="touchUpInside" id="wdJ-MG-XOe"/>
+                            <action selector="closeTab:" destination="gTV-IL-0wX" eventType="touchUpInside" id="USn-O2-aby"/>
                         </connections>
                     </button>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X5E-ne-PDd">
-                        <rect key="frame" x="0.0" y="0.0" width="225" height="220"/>
-                    </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="X5E-ne-PDd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3De-uw-h5e"/>
-                <constraint firstAttribute="trailing" secondItem="jik-Gq-sJz" secondAttribute="trailing" constant="8" id="Y6i-er-P6j"/>
-                <constraint firstItem="X5E-ne-PDd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="aTT-7j-NqD"/>
-                <constraint firstItem="jik-Gq-sJz" firstAttribute="top" secondItem="X5E-ne-PDd" secondAttribute="bottom" id="hN6-wP-Hoh"/>
-                <constraint firstAttribute="trailing" secondItem="X5E-ne-PDd" secondAttribute="trailing" id="lY6-Ho-tIH"/>
-                <constraint firstAttribute="bottom" secondItem="jik-Gq-sJz" secondAttribute="bottom" id="mRX-Jo-ZmF"/>
+                <constraint firstItem="jik-Gq-sJz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="2d0-kq-1zK"/>
+                <constraint firstAttribute="trailing" secondItem="NyJ-jO-Tbg" secondAttribute="trailing" constant="8" id="dTu-BE-zGm"/>
+                <constraint firstItem="NyJ-jO-Tbg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="kmt-g9-EgZ"/>
+                <constraint firstAttribute="trailing" secondItem="jik-Gq-sJz" secondAttribute="trailing" constant="16" id="nXx-Sc-FIZ"/>
+                <constraint firstAttribute="bottom" secondItem="NyJ-jO-Tbg" secondAttribute="bottom" constant="8" id="w6S-zG-Agx"/>
+                <constraint firstItem="NyJ-jO-Tbg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="wCw-LR-EQr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="225" height="238"/>
             <connections>
-                <outlet property="image" destination="X5E-ne-PDd" id="4ki-lj-b52"/>
+                <outlet property="image" destination="X5E-ne-PDd" id="t7c-ET-JVq"/>
             </connections>
             <point key="canvasLocation" x="131.15942028985509" y="107.14285714285714"/>
         </collectionViewCell>

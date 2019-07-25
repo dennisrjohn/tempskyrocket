@@ -70,7 +70,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HVB-3a-Xxm">
                                 <rect key="frame" x="16" y="80" width="343" height="571"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PGa-4h-j0j">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="PGa-4h-j0j">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -79,12 +79,16 @@
                                 <cells/>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zu-wH-EVM">
-                                <rect key="frame" x="159" y="607" width="57" height="30"/>
+                                <rect key="frame" x="150" y="607" width="75" height="30"/>
+                                <color key="backgroundColor" white="0.82482394366197187" alpha="0.74675396126760563" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="57" id="oNo-ww-g5O"/>
+                                    <constraint firstAttribute="width" constant="75" id="oNo-ww-g5O"/>
                                     <constraint firstAttribute="height" constant="30" id="ps3-0f-D2E"/>
                                 </constraints>
-                                <state key="normal" title="Add Tab"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                <state key="normal" title="Add Tab">
+                                    <color key="titleColor" red="0.76470588235294112" green="0.15686274509803921" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="addTab:" destination="7Q4-My-xbF" eventType="touchUpInside" id="DRb-dk-eRR"/>
                                 </connections>
@@ -105,6 +109,7 @@
                         <viewLayoutGuide key="safeArea" id="3pm-vA-8mN"/>
                     </view>
                     <connections>
+                        <outlet property="addTabButton" destination="2Zu-wH-EVM" id="LWf-K0-4jx"/>
                         <outlet property="tabsCollectionView" destination="HVB-3a-Xxm" id="ubm-Yk-ECG"/>
                     </connections>
                 </viewController>

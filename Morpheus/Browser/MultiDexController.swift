@@ -40,7 +40,9 @@ class MultiDexController: UIViewController, UICollectionViewDelegate, UICollecti
         if (image.image != nil){
             screenShots[index] = image
             UIView.performWithoutAnimation {
-                imageCollectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
+                if (engines.count > index){
+                    imageCollectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
+                }
             }
         }
     }

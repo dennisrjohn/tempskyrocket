@@ -53,9 +53,15 @@ class HydrationHelper {
     
     func deleteTab(atIndex index: Int) {
         var decodedData = getDecodedData()
+        let oldTabCount = decodedData.tabs.count
         decodedData.tabs.remove(at: index)
         data = decodedData
         save()
+        
+        for i in (index + 1)...(oldTabCount - 1) {
+            TabScreenshotHelper.instance.moveScreenshot(fromIndex: i, toIndex: i - 1)
+        }
+        //move the screenshots
     }
     
     func setActiveTab(index:Int) {
