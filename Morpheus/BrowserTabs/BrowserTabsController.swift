@@ -40,6 +40,21 @@ class BrowserTabsController: UIViewController {
         }
     }
     
+    let kFirstItemTransform: CGFloat = 0.05
+    
+    
+    var tabImageSize:CGSize {
+        get {
+            let safeAreaInsets = UIApplication.shared.keyWindow!.safeAreaInsets
+            let imageWidth = tabsCollectionView.bounds.width
+            let widthRatio = imageWidth / view.bounds.width
+            let safeAreaAdjustments =  (safeAreaInsets.top + safeAreaInsets.bottom)
+            let imageHeight = ((view.bounds.height - safeAreaAdjustments) * widthRatio)
+            print(imageWidth, imageHeight, imageWidth / imageHeight)
+            return CGSize(width: imageWidth, height: imageHeight)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +63,9 @@ class BrowserTabsController: UIViewController {
         
         let nib = UINib(nibName: "TabImageCell", bundle: nil)
         tabsCollectionView.register(nib, forCellWithReuseIdentifier: "tabCell")
+        
+        let stickyLayout = tabsCollectionView.collectionViewLayout as! StickyCollectionViewFlowLayout
+        stickyLayout.firstItemTransform = kFirstItemTransform
         
         tabsCollectionView.dataSource = self
         tabsCollectionView.delegate = self
@@ -90,12 +108,19 @@ extension BrowserTabsController: UICollectionViewDelegate {
 
 
 extension BrowserTabsController: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//
+//        let imageWidth = (tabsCollectionView.bounds.width / 2) //4 pixels padding on each side of the cell
+//        let widthRatio = imageWidth / view.bounds.width
+//        let imageHeight = (view.bounds.height * widthRatio)
+//
+//        return CGSize(width: imageWidth, height: imageHeight)
+//    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let imageWidth = (tabsCollectionView.bounds.width / 2) //4 pixels padding on each side of the cell
-        let widthRatio = imageWidth / view.bounds.width
-        let imageHeight = (view.bounds.height * widthRatio)
-        
-        return CGSize(width: imageWidth, height: imageHeight)
+        return tabImageSize;
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: NSInteger) -> CGFloat {
+        return (tabImageSize.height * 0.5) * -1
     }
 }

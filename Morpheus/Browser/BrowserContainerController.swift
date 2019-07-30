@@ -249,12 +249,22 @@ class BrowserContainerController: UIViewController {
     @IBAction func buttonThreeTapped(_ sender: Any) {
     }
     @IBAction func buttonFourTapped(_ sender: Any) {
-        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
+        
+        let safeArea = UIApplication.shared.keyWindow!.safeAreaInsets
+        let yOffset = safeArea.top * -1
+        let targetHeight = view.bounds.size.height - safeArea.top - safeArea.bottom
+        let bounds = CGRect(x: 0.0, y: yOffset, width: view.bounds.width, height: targetHeight)
+        
+        let renderer = UIGraphicsImageRenderer(size: bounds.size)
+        
         let image = renderer.image { ctx in
-            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+            view.drawHierarchy(in: bounds, afterScreenUpdates: true)
         }
+        
         _ = TabScreenshotHelper.instance.saveImage(image: image, forTab: tabIndex)
+        
         browserTabDelegate?.showAllTabs()
+        
     }
     
     

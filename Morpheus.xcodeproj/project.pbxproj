@@ -28,6 +28,7 @@
 		01B310A922C957CC0092F110 /* powerup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01B310A722C957CC0092F110 /* powerup.mp3 */; };
 		01B310AB22C958790092F110 /* SearchSpyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B310AA22C958790092F110 /* SearchSpyViewController.swift */; };
 		01B310AE22C958B00092F110 /* XBrowser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01B310AD22C958B00092F110 /* XBrowser.storyboard */; };
+		950A0EE322EFF24900309DC6 /* StickyCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950A0EE222EFF24900309DC6 /* StickyCollectionViewFlowLayout.swift */; };
 		95159B6222E91207000C24A7 /* TabScreenshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95159B6122E91207000C24A7 /* TabScreenshotHelper.swift */; };
 		95159B6B22E92258000C24A7 /* TabImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95159B6922E92258000C24A7 /* TabImageCell.swift */; };
 		95159B6C22E92258000C24A7 /* TabImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95159B6A22E92258000C24A7 /* TabImageCell.xib */; };
@@ -79,6 +80,7 @@
 		01B310AA22C958790092F110 /* SearchSpyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSpyViewController.swift; sourceTree = "<group>"; };
 		01B310AD22C958B00092F110 /* XBrowser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XBrowser.storyboard; sourceTree = "<group>"; };
 		4D3ECC176FF1F37DBC586ACA /* Pods_Morpheus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Morpheus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		950A0EE222EFF24900309DC6 /* StickyCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		95159B6122E91207000C24A7 /* TabScreenshotHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabScreenshotHelper.swift; sourceTree = "<group>"; };
 		95159B6922E92258000C24A7 /* TabImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabImageCell.swift; sourceTree = "<group>"; };
 		95159B6A22E92258000C24A7 /* TabImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabImageCell.xib; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				0153A32722DBE47C00BBBDA4 /* UIView.swift */,
 				959BDA3E22DFD4FC00491C2E /* SearchField.swift */,
+				950A0EE222EFF24900309DC6 /* StickyCollectionViewFlowLayout.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				01B310AB22C958790092F110 /* SearchSpyViewController.swift in Sources */,
 				01820E4920D2084B0079063C /* BrowserContainerController.swift in Sources */,
 				9546999B22D4526C00BE45B5 /* HydrationHelper.swift in Sources */,
+				950A0EE322EFF24900309DC6 /* StickyCollectionViewFlowLayout.swift in Sources */,
 				959BDA3D22DFBEBA00491C2E /* ProfileHeaderController.swift in Sources */,
 				959BDA3F22DFD4FC00491C2E /* SearchField.swift in Sources */,
 				0153A31922DBD62900BBBDA4 /* UserProfileController.swift in Sources */,
