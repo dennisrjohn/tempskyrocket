@@ -67,8 +67,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HVB-3a-Xxm">
-                                <rect key="frame" x="16" y="80" width="343" height="571"/>
+                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HVB-3a-Xxm">
+                                <rect key="frame" x="16" y="72" width="343" height="579"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="TAl-hD-Cfb" customClass="StickyCollectionViewFlowLayout" customModule="Morpheus" customModuleProvider="target"/>
                                 <cells/>
@@ -97,7 +97,7 @@
                             <constraint firstItem="3pm-vA-8mN" firstAttribute="bottom" secondItem="HVB-3a-Xxm" secondAttribute="bottom" constant="16" id="iqZ-85-dkV"/>
                             <constraint firstItem="3pm-vA-8mN" firstAttribute="trailing" secondItem="HVB-3a-Xxm" secondAttribute="trailing" constant="16" id="jEZ-wM-xMn"/>
                             <constraint firstItem="roO-sC-F0B" firstAttribute="leading" secondItem="3pm-vA-8mN" secondAttribute="leading" constant="16" id="jKY-Lb-08C"/>
-                            <constraint firstItem="HVB-3a-Xxm" firstAttribute="top" secondItem="roO-sC-F0B" secondAttribute="bottom" constant="16" id="laW-Fg-57b"/>
+                            <constraint firstItem="HVB-3a-Xxm" firstAttribute="top" secondItem="roO-sC-F0B" secondAttribute="bottom" constant="8" id="laW-Fg-57b"/>
                             <constraint firstItem="3pm-vA-8mN" firstAttribute="bottom" secondItem="2Zu-wH-EVM" secondAttribute="bottom" constant="30" id="rR0-cH-amP"/>
                             <constraint firstItem="2Zu-wH-EVM" firstAttribute="centerX" secondItem="cAA-uo-AQZ" secondAttribute="centerX" id="wbj-LR-Ceo"/>
                         </constraints>
@@ -106,6 +106,7 @@
                     <connections>
                         <outlet property="addTabButton" destination="2Zu-wH-EVM" id="LWf-K0-4jx"/>
                         <outlet property="tabsCollectionView" destination="HVB-3a-Xxm" id="ubm-Yk-ECG"/>
+                        <outlet property="titleLabel" destination="roO-sC-F0B" id="a3p-yB-eVD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b39-OX-ioS" userLabel="First Responder" sceneMemberID="firstResponder"/>

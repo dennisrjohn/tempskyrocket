@@ -58,7 +58,7 @@ class HydrationHelper {
         data = decodedData
         save()
         
-        for i in (index + 1)...(oldTabCount - 1) {
+        for i in (index + 1)...(oldTabCount) {
             TabScreenshotHelper.instance.moveScreenshot(fromIndex: i, toIndex: i - 1)
         }
         //move the screenshots

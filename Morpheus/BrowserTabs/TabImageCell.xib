@@ -17,7 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="top" reuseIdentifier="" id="gTV-IL-0wX" customClass="TabImageCell" customModule="Morpheus" customModuleProvider="target">
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="TabImageCell" customModule="Morpheus" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="225" height="238"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -66,6 +66,7 @@
                     </button>
                 </subviews>
             </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="jik-Gq-sJz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="2d0-kq-1zK"/>
                 <constraint firstItem="NyJ-jO-Tbg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Cji-lc-O2s"/>
