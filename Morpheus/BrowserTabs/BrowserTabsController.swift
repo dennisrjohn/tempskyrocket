@@ -32,15 +32,17 @@ class BrowserTabsController: UIViewController {
 
     @IBOutlet weak var tabsCollectionView: UICollectionView!
     @IBOutlet weak var addTabButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var delegate:BrowserTabDelegate?
     var tabs = [TabInfo]() {
         didSet {
+            titleLabel.text = tabs.count > 0 ? "Tabs - \(tabs.count)" : "Tabs"
             tabsCollectionView.reloadData()
         }
     }
     
-    let kFirstItemTransform: CGFloat = 0.05
+//    let kFirstItemTransform: CGFloat = 0.05
     
     
     var tabImageSize:CGSize {
@@ -50,7 +52,6 @@ class BrowserTabsController: UIViewController {
             let widthRatio = imageWidth / view.bounds.width
             let safeAreaAdjustments =  (safeAreaInsets.top + safeAreaInsets.bottom)
             let imageHeight = ((view.bounds.height - safeAreaAdjustments) * widthRatio)
-            print(imageWidth, imageHeight, imageWidth / imageHeight)
             return CGSize(width: imageWidth, height: imageHeight)
         }
     }
@@ -64,8 +65,8 @@ class BrowserTabsController: UIViewController {
         let nib = UINib(nibName: "TabImageCell", bundle: nil)
         tabsCollectionView.register(nib, forCellWithReuseIdentifier: "tabCell")
         
-        let stickyLayout = tabsCollectionView.collectionViewLayout as! StickyCollectionViewFlowLayout
-        stickyLayout.firstItemTransform = kFirstItemTransform
+//        let stickyLayout = tabsCollectionView.collectionViewLayout as! StickyCollectionViewFlowLayout
+//        stickyLayout.firstItemTransform = kFirstItemTransform
         
         tabsCollectionView.dataSource = self
         tabsCollectionView.delegate = self
@@ -89,8 +90,8 @@ extension BrowserTabsController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tabCell", for: indexPath) as! TabImageCell
-        
         let tab = tabs[indexPath.row]
+        
         cell.setImage(tab.thumbnail)
         cell.delegate = delegate
         cell.tabIndex = tab.index
@@ -108,19 +109,11 @@ extension BrowserTabsController: UICollectionViewDelegate {
 
 
 extension BrowserTabsController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        let imageWidth = (tabsCollectionView.bounds.width / 2) //4 pixels padding on each side of the cell
-//        let widthRatio = imageWidth / view.bounds.width
-//        let imageHeight = (view.bounds.height * widthRatio)
-//
-//        return CGSize(width: imageWidth, height: imageHeight)
-//    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return tabImageSize;
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: NSInteger) -> CGFloat {
-        return (tabImageSize.height * 0.5) * -1
+        return (tabImageSize.height * 0.6) * -1
     }
 }

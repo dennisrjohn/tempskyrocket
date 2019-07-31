@@ -18,13 +18,13 @@ PODS:
     - AuthorizeMe/Core
   - AuthorizeMe/Twitter (1.2.2):
     - AuthorizeMe/Core
-  - lottie-ios (3.0.7)
+  - lottie-ios (3.1.1)
   - Nuke (8.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-beta.6)
   - AuthorizeMe (~> 1.2.2)
-  - lottie-ios (~> 3.0.0)
+  - lottie-ios (~> 3.1.0)
   - Nuke (~> 8.0)
 
 SPEC REPOS:
@@ -37,9 +37,9 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
   AuthorizeMe: fd444e923d6a8fc3af27c05a24bad6226604400f
-  lottie-ios: c38c3178ae8c4a8f200661aa5f80b9f1ca7f56b3
+  lottie-ios: 43a472d22b2dd2bed292cc4010c0b4d2e66d3ba8
   Nuke: 8d90f1dbf88d27a7ba6ff3934de01693812e5adb
 
-PODFILE CHECKSUM: 9607b1309796f191dd8f28f150ed9e11fb9186ab
+PODFILE CHECKSUM: e7934ea474267b5a02908f1fe41189d2f292930e
 
-COCOAPODS: 1.7.3
+COCOAPODS: 1.7.0

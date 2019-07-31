@@ -24,4 +24,8 @@ class TabImageCell: UICollectionViewCell {
     @IBAction func closeTab(_ sender: Any) {
         delegate?.removeTab(at: tabIndex)
     }
+    
+    override func awakeFromNib() {
+        print(contentView.bounds)
+    }
 }
