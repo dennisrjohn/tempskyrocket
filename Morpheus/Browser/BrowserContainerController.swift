@@ -75,9 +75,11 @@ class BrowserContainerController: UIViewController {
     var barsHidden:Bool = false
     
     var engines = [(name: "Google", searchURL: "https://www.google.com/search?q=%%searchTerm%%"),
+                   (name: "Wikipedia", searchURL: "https://en.wikipedia.org/wiki/Special:Search?search=%%searchTerm%%"),
+                   (name: "YouTube", searchURL: "https://www.youtube.com/results?search_query=%%searchTerm%%"),
+                   (name: "Google Images", searchURL:"https://google.com/search?q=%%searchTerm%%&tbm=isch"),
                    (name: "Amazon", searchURL: "https://www.amazon.com/s?k=%%searchTerm%%"),
-                   (name: "Bing Image Search", searchURL: "https://www.bing.com/images/search?q=%%searchTerm%%"),
-                   (name: "Stack Overflow", searchURL: "https://stackoverflow.com/search?q=%%searchTerm%%"),
+                   (name: "Google News", searchURL:"https://google.com/search?q=%%searchTerm%%&tbm=nws"),
                    (name: "Reddit", searchURL: "https://www.reddit.com/search/?q=%%searchTerm%%")]
     var webViews = [CacheBrowserController]()
     
