@@ -87,7 +87,7 @@ class BrowserContainerController: UIViewController {
     
     var toolBarHeight:CGFloat {
         get {
-            return 100 + UIApplication.shared.keyWindow!.safeAreaInsets.bottom
+            return 60 + UIApplication.shared.keyWindow!.safeAreaInsets.bottom
         }
     }
     
@@ -207,13 +207,13 @@ class BrowserContainerController: UIViewController {
     }
     
     func addGestureRecognizers() {
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(magicButtonTapped))
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(showSearch))
         tapRecognizer.numberOfTapsRequired = 1
         magicButton.addGestureRecognizer(tapRecognizer)
-        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(showSearch))
-        doubleTapRecognizer.numberOfTapsRequired = 2
-        magicButton.addGestureRecognizer(doubleTapRecognizer)
-        tapRecognizer.require(toFail: doubleTapRecognizer)
+//        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(showSearch))
+//        doubleTapRecognizer.numberOfTapsRequired = 2
+//        magicButton.addGestureRecognizer(doubleTapRecognizer)
+//        tapRecognizer.require(toFail: doubleTapRecognizer)
         
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(startSpy(_:)))
         magicButton.addGestureRecognizer(longGesture)
@@ -221,24 +221,24 @@ class BrowserContainerController: UIViewController {
     }
     
     
-    @objc func penguinSwiped(gestureRecognizer: UISwipeGestureRecognizer) {
-        showSearch()
-    }
-    @objc func magicButtonTapped(recognizer: UITapGestureRecognizer) {
-        if (currentViewingIndex < searchResults.count - 1){
-            resultsScrollView.setContentOffset(CGPoint(x: resultsScrollView.contentOffset.x + view.bounds.width, y: 0), animated: true)
-        }
-    }
-    @objc func magicButtonDoubleTapped(recognizer: UITapGestureRecognizer) {
-        if (currentViewingIndex > 0) {
-            resultsScrollView.setContentOffset(CGPoint(x: max(resultsScrollView.contentOffset.x - view.bounds.width, 0), y: 0), animated: true)
-        }
+//    @objc func penguinSwiped(gestureRecognizer: UISwipeGestureRecognizer) {
+//        showSearch()
+//    }
+//    @objc func magicButtonTapped(recognizer: UITapGestureRecognizer) {
+//        if (currentViewingIndex < searchResults.count - 1){
+//            resultsScrollView.setContentOffset(CGPoint(x: resultsScrollView.contentOffset.x + view.bounds.width, y: 0), animated: true)
+//        }
+//    }
+//    @objc func magicButtonDoubleTapped(recognizer: UITapGestureRecognizer) {
+//        if (currentViewingIndex > 0) {
+//            resultsScrollView.setContentOffset(CGPoint(x: max(resultsScrollView.contentOffset.x - view.bounds.width, 0), y: 0), animated: true)
+//        }
+//    }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
     }
     
-    @IBAction func buttonOneTapped(_ sender: Any) {
-    }
-    
-    @IBAction func buttonTwoTapped(_ sender: Any) {
+    @IBAction func showMultiDexTapped(_ sender: Any) {
         showMultiDex()
         queueScreenshot(index: currentViewingIndex)
         for i in 0...webViews.count - 1 {
@@ -246,9 +246,9 @@ class BrowserContainerController: UIViewController {
         }
     }
     
-    @IBAction func buttonThreeTapped(_ sender: Any) {
+    @IBAction func shareTapped(_ sender: Any) {
     }
-    @IBAction func buttonFourTapped(_ sender: Any) {
+    @IBAction func tabsTapped(_ sender: Any) {
         let safeArea = UIApplication.shared.keyWindow!.safeAreaInsets
         let yOffset = safeArea.top * -1
         let targetHeight = view.bounds.size.height - safeArea.top - safeArea.bottom
