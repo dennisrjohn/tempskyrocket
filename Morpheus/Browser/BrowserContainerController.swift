@@ -51,6 +51,7 @@ class BrowserContainerController: UIViewController {
     
     @IBOutlet weak var toolViewContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var magicButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     var browserTabDelegate:BrowserTabDelegate?
     
@@ -164,6 +165,8 @@ class BrowserContainerController: UIViewController {
             showSearch()
         }
         
+        setNavigation()
+        
         initted = true
     }
     
@@ -178,6 +181,7 @@ class BrowserContainerController: UIViewController {
         resultsScrollView.frame = CGRect(x: 0.0, y: 0.0, width: containerFrame.width, height: containerFrame.height - toolBarHeight)
         resultsScrollView.setContentOffset(CGPoint(x: (view.bounds.width * CGFloat(index)), y: 0), animated: false)
         multiDexContainerView.isHidden = true
+        setNavigation()
         HydrationHelper.instance.setShowing(viewState: .browser, forTab: tabIndex)
     }
     
@@ -186,6 +190,7 @@ class BrowserContainerController: UIViewController {
         let containerFrame = view.frame
         resultsScrollView.frame = CGRect(x: 0.0, y: containerFrame.height, width: containerFrame.width, height: containerFrame.height - toolBarHeight)
         multiDexContainerView.isHidden = false
+        setNavigation()
         HydrationHelper.instance.setShowing(viewState: .multiDex, forTab: tabIndex)
     }
     
@@ -194,6 +199,7 @@ class BrowserContainerController: UIViewController {
         let safeArea = UIApplication.shared.keyWindow!.safeAreaInsets
         homeScreenController?.setInsets(top: safeArea.top, bottom: toolBarHeight)
         homeScreenContainerView.isHidden = false
+        setNavigation()
         UIView.animate(withDuration: 0.2, animations: { [weak self] in
             self?.homeScreenContainerView.alpha = 1.0
         })
@@ -238,6 +244,7 @@ class BrowserContainerController: UIViewController {
 //    }
     
     @IBAction func backButtonTapped(_ sender: Any) {
+        webViews[currentViewingIndex].goBack()
     }
     
     @IBAction func showMultiDexTapped(_ sender: Any) {
@@ -384,6 +391,10 @@ class BrowserContainerController: UIViewController {
         for (index, controller) in webViews.enumerated() {
             controller.visibilityDelegate = index == currentViewingIndex ? self : nil
         }
+        backButton.isEnabled = webViews[currentViewingIndex].canGoBack &&
+            multiDexContainerView.isHidden &&
+            homeScreenContainerView.isHidden
+        backButton.alpha = backButton.isEnabled ? 1 : 0.6
 //
 //        showPageTitle()
     }

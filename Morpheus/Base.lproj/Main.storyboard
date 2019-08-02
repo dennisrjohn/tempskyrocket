@@ -151,6 +151,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orM-q1-rFn">
                                                         <rect key="frame" x="0.0" y="0.0" width="37" height="60"/>
                                                         <state key="normal" image="back-button"/>
+                                                        <state key="disabled" image="back-button"/>
                                                         <connections>
                                                             <action selector="backButtonTapped:" destination="IYQ-y9-znU" eventType="touchUpInside" id="4YW-Aw-IaE"/>
                                                         </connections>
@@ -216,6 +217,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Rlv-H5-4ec"/>
                     <connections>
+                        <outlet property="backButton" destination="orM-q1-rFn" id="DpE-u7-SNI"/>
                         <outlet property="homeScreenContainerView" destination="vWe-qj-OFp" id="5Ss-Mk-NF1"/>
                         <outlet property="magicButton" destination="1bz-w9-vUw" id="Ydj-oB-pkZ"/>
                         <outlet property="multiDexContainerView" destination="cJi-qd-lIf" id="pnu-eJ-fvO"/>
