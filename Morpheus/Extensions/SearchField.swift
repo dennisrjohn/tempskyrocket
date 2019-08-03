@@ -12,18 +12,18 @@ class SearchField: UITextField {
     override func awakeFromNib() {
         //Basic texfield Setup
         borderStyle = .none
-        backgroundColor = UIColor.groupTableViewBackground // Use anycolor that give you a 2d look.
+        backgroundColor = UIColor.white // Use anycolor that give you a 2d look.
         
         //To apply corner radius
-        layer.cornerRadius = 12.0
+        layer.cornerRadius = 20.0
         
         //To apply border
-        layer.borderWidth = 0.25
-        layer.borderColor = UIColor.white.cgColor
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(white: 0.8, alpha: 1.0).cgColor
         
         //To apply Shadow
         layer.shadowOpacity = 0.2
-        layer.shadowRadius = 5.0
+        layer.shadowRadius = 2.0
         layer.shadowOffset = CGSize(width: 0, height: 3) // Use any CGSize
         layer.shadowColor = UIColor.black.cgColor
         

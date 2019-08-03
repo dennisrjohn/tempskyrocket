@@ -196,8 +196,6 @@ class BrowserContainerController: UIViewController {
     
     @objc func showSearch() {
         HydrationHelper.instance.setShowing(viewState: .homeScreen, forTab: tabIndex)
-        let safeArea = UIApplication.shared.keyWindow!.safeAreaInsets
-        homeScreenController?.setInsets(top: safeArea.top, bottom: toolBarHeight)
         homeScreenContainerView.isHidden = false
         setNavigation()
         UIView.animate(withDuration: 0.2, animations: { [weak self] in
@@ -256,6 +254,7 @@ class BrowserContainerController: UIViewController {
     }
     
     @IBAction func shareTapped(_ sender: Any) {
+        shareCurrentContext()
     }
     @IBAction func tabsTapped(_ sender: Any) {
         let safeArea = UIApplication.shared.keyWindow!.safeAreaInsets
@@ -444,6 +443,25 @@ class BrowserContainerController: UIViewController {
         if let spyController = storyboard.instantiateViewController(withIdentifier: "SearchSpy") as? SearchSpyViewController {
             spyController.delegate = self
             present(spyController, animated: true, completion: nil)
+        }
+    }
+    
+    func shareCurrentContext() {
+        if (multiDexContainerView.isHidden && homeScreenContainerView.isHidden) {
+            //we're showing a page, share the URL
+            if let urlToShare = webViews[currentViewingIndex].url {
+                let shareController = UIActivityViewController(activityItems: [urlToShare], applicationActivities: nil)
+                present(shareController, animated: true, completion: nil)
+            }
+        } else if (!multiDexContainerView.isHidden) {
+            //showing multidex - maybe share a screenshot?
+            if let screenshot = view.takeScrennshot() {
+                let shareController = UIActivityViewController(activityItems: ["Check out MultiDex, a cool new way to search in the Super Popular Browser", screenshot], applicationActivities: nil)
+                present(shareController, animated: true, completion: nil)
+            }
+            
+        } else {
+            //showing home screen, should share the dynamic link url
         }
     }
 }

@@ -10,4 +10,6 @@ target 'Morpheus' do
   pod 'lottie-ios', '~> 3.1.0'
   pod 'AuthorizeMe', '~>1.2.2'
   pod 'Nuke', '~> 8.0'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/DynamicLinks'
 end
