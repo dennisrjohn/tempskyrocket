@@ -28,7 +28,6 @@ class HomeScreenController: UIViewController {
         homeScreenWebView.load(URLRequest(url: URL(string: "https://www.besuperpopular.com/")!))
     }
     
-    
 }
 
 extension HomeScreenController: UITextFieldDelegate {

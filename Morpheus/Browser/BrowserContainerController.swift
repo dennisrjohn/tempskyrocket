@@ -100,6 +100,12 @@ class BrowserContainerController: UIViewController {
     
     var initted = false
     
+    var resultsShowing:Bool {
+        get {
+            return multiDexContainerView.isHidden && homeScreenContainerView.isHidden
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -134,6 +140,33 @@ class BrowserContainerController: UIViewController {
         multiDexContainerView.frame = CGRect(x: 0.0, y: safeY, width: containerFrame.width, height: containerFrame.height - toolBarHeight - safeY)
         
         addGestureRecognizers()
+        
+        checkOrientation()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        let widthDiff = size.width / view.bounds.width
+        let heightDiff = size.height / view.bounds.height
+        let currentContentOffset = resultsScrollView.contentOffset
+        
+        if (size.width > size.height) {
+            resultsScrollView.frame = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
+            if (resultsShowing){
+                toolViewContainerHeightConstraint.constant = 0
+            }
+        } else {
+            resultsScrollView.frame = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
+            toolViewContainerHeightConstraint.constant = toolBarHeight
+        }
+        resultsScrollView.setContentOffset(CGPoint(x: currentContentOffset.x * widthDiff, y: currentContentOffset.y * heightDiff), animated: false)
+    }
+    
+    func checkOrientation() {
+        if (resultsShowing){
+            AppDelegate.AppUtility.lockOrientation(.allButUpsideDown)
+        } else {
+            AppDelegate.AppUtility.lockOrientation(.portrait)
+        }
     }
     
     func initialize() {
@@ -394,6 +427,8 @@ class BrowserContainerController: UIViewController {
             multiDexContainerView.isHidden &&
             homeScreenContainerView.isHidden
         backButton.alpha = backButton.isEnabled ? 1 : 0.6
+        
+        checkOrientation()
 //
 //        showPageTitle()
     }
