@@ -15,6 +15,7 @@ struct BootstrapData: Codable {
 
 struct TabData: Codable {
     var activeBrowser:Int = 0
+    var searchTerm:String = ""
     var showing:ViewState = .homeScreen
     var browserURLs = Dictionary<Int, String>()
 }
@@ -42,9 +43,16 @@ class HydrationHelper {
         save()
     }
     
+    func setSearchTerm(forTab tabIndex: Int, searchTerm: String) {
+        var decodedData = getDecodedData()
+        decodedData.tabs[tabIndex].searchTerm = searchTerm
+        data = decodedData
+        save()
+    }
+    
     func addTab() {
         var decodedData = getDecodedData()
-        let newTabData = TabData(activeBrowser: 0, showing: .homeScreen, browserURLs: Dictionary<Int, String>())
+        let newTabData = TabData(activeBrowser: 0, searchTerm: "", showing: .homeScreen, browserURLs: Dictionary<Int, String>())
         decodedData.tabs.append(newTabData)
         decodedData.activeTab = decodedData.tabs.count - 1
         data = decodedData
@@ -94,7 +102,7 @@ class HydrationHelper {
         if decodedData.tabs.count > tabIndex {
             return decodedData.tabs[tabIndex]
         } else {
-            let newTabData = TabData(activeBrowser: 0, showing: .homeScreen, browserURLs: Dictionary<Int, String>())
+            let newTabData = TabData(activeBrowser: 0, searchTerm: "", showing: .homeScreen, browserURLs: Dictionary<Int, String>())
             decodedData.tabs.append(newTabData)
             return newTabData
         }
@@ -109,7 +117,7 @@ class HydrationHelper {
             data = decodedJSON
             return decodedJSON
         }
-        let newTabData = TabData(activeBrowser: 0, showing: .homeScreen, browserURLs: Dictionary<Int, String>())
+        let newTabData = TabData(activeBrowser: 0, searchTerm: "", showing: .homeScreen, browserURLs: Dictionary<Int, String>())
         data = BootstrapData(activeTab: 0, tabs: [newTabData])
         save()
         return data!

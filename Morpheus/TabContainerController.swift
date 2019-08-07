@@ -8,10 +8,20 @@
 
 import UIKit
 
-class TabContainerController: UIViewController {
+protocol TopStatusBarDelegate {
+    func setStatusBarStyle(_ style: UIStatusBarStyle)
+}
 
+class TabContainerController: UIViewController {
     var currentControllerIndex = 0
     var tabController:BrowserTabsController?
+    var statusBarStyle:UIStatusBarStyle = .default
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        get {
+            return statusBarStyle
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +59,7 @@ class TabContainerController: UIViewController {
     func addNewTab(_ index:Int?, initialize: Bool = false) {
         let newTab = storyboard!.instantiateViewController(withIdentifier: "browserContainerController") as! BrowserContainerController
         newTab.browserTabDelegate = self
+        newTab.statusBarDelegate = self
         newTab.tabIndex = index ?? children.count - 1
         let frame = view.frame
         add(newTab, frame: frame)
@@ -58,6 +69,13 @@ class TabContainerController: UIViewController {
         }
     }
 
+}
+
+extension TabContainerController: TopStatusBarDelegate {
+    func setStatusBarStyle(_ style: UIStatusBarStyle) {
+        statusBarStyle = style
+        setNeedsStatusBarAppearanceUpdate()
+    }
 }
 
 extension TabContainerController: BrowserTabDelegate {
@@ -72,6 +90,7 @@ extension TabContainerController: BrowserTabDelegate {
             if !newController.initted {
                 newController.initialize()
             }
+            newController.checkStatusBar()
         }
         
         HydrationHelper.instance.setActiveTab(index: toIndex)
@@ -88,6 +107,8 @@ extension TabContainerController: BrowserTabDelegate {
         HydrationHelper.instance.setActiveTab(index: -1)
         
         reloadTabView()
+        
+        setStatusBarStyle(.default)
         
         transition(from: transitionFrom, to: transitionTo, duration: 0.0, options: .curveLinear, animations: nil, completion: nil)
     }

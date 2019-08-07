@@ -11,6 +11,9 @@ import UIKit
 class MultiDexController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var imageCollectionView: UICollectionView!
+    @IBOutlet weak var searchTermLabel: UILabel!
+    
+    
     var engineDelegate:EngineDelegate?
     
     var engines:[(name:String, searchURL:String)] = [] {
@@ -19,6 +22,12 @@ class MultiDexController: UIViewController, UICollectionViewDelegate, UICollecti
                 imageCollectionView.reloadData()
             }
             view.isHidden = engines.count == 0
+        }
+    }
+    
+    var searchTerm:String = "" {
+        didSet {
+            searchTermLabel.text = "multidex: \(searchTerm)"
         }
     }
     
@@ -70,11 +79,19 @@ class MultiDexController: UIViewController, UICollectionViewDelegate, UICollecti
         let widthRatio = imageWidth / view.bounds.width
         let imageHeight = view.bounds.height * widthRatio
         
-        return CGSize(width: imageWidth - 8, height: imageHeight)
+        return CGSize(width: imageWidth - 6, height: imageHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         engineDelegate?.fullscreenEngine(at: indexPath.row, screenshotBounds: CGRect.zero, screenshotImage: screenShots[indexPath.row]?.image)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 2.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 18.0
     }
 }
 
@@ -94,27 +111,27 @@ class ImageCell:UICollectionViewCell {
 class CellView:UIView {
     
     override func draw(_ rect: CGRect) {
-        let radius:CGFloat = 10.0
+        let radius:CGFloat = 20.0
         
         // add the shadow to the base view
         layer.cornerRadius = radius
         layer.masksToBounds = true
         backgroundColor = UIColor.clear
-        superview?.layer.shadowColor = UIColor.black.cgColor
-        superview?.layer.shadowOffset = CGSize(width: 9, height: 10)
-        superview?.layer.shadowOpacity = 0.5
-        superview?.layer.shadowRadius = 2.0
-        superview?.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 10).cgPath
+        superview?.layer.shadowColor = UIColor.white.cgColor
+        superview?.layer.shadowOffset = CGSize(width: 0, height: 0)
+        superview?.layer.shadowOpacity = 0.2
+        superview?.layer.shadowRadius = 6.0
+        superview?.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 20).cgPath
         superview?.layer.shouldRasterize = true
         superview?.layer.rasterizationScale = UIScreen.main.scale
         
         // add the border to subview
-        let borderView = UIView()
-        borderView.frame = bounds
-        borderView.layer.cornerRadius = radius
-        borderView.layer.borderColor = UIColor.gray.cgColor
-        borderView.layer.borderWidth = 1.0
-        borderView.layer.masksToBounds = true
-        addSubview(borderView)
+//        let borderView = UIView()
+//        borderView.frame = bounds
+//        borderView.layer.cornerRadius = radius
+//        borderView.layer.borderColor = UIColor.gray.cgColor
+//        borderView.layer.borderWidth = 1.0
+//        borderView.layer.masksToBounds = true
+//        addSubview(borderView)
     }
 }

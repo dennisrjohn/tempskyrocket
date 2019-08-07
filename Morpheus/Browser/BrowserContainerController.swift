@@ -44,6 +44,7 @@ protocol EngineDelegate {
 
 class BrowserContainerController: UIViewController {
     
+    @IBOutlet var containerView: UIView!
     @IBOutlet weak var resultsScrollView: UIScrollView!
     @IBOutlet weak var toolView: UIView!
     @IBOutlet weak var multiDexContainerView: UIView!
@@ -54,6 +55,7 @@ class BrowserContainerController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     
     var browserTabDelegate:BrowserTabDelegate?
+    var statusBarDelegate:TopStatusBarDelegate?
     
 //    var indexBrowser = CacheBrowserController();
     var multiDexController:MultiDexController?
@@ -162,10 +164,22 @@ class BrowserContainerController: UIViewController {
     }
     
     func checkOrientation() {
-        if (resultsShowing){
+        if resultsShowing {
             AppDelegate.AppUtility.lockOrientation(.allButUpsideDown)
         } else {
             AppDelegate.AppUtility.lockOrientation(.portrait)
+        }
+        
+        checkStatusBar()
+    }
+    
+    func checkStatusBar() {
+        if !multiDexContainerView.isHidden {
+            containerView.backgroundColor = UIColor.darkGray
+            statusBarDelegate?.setStatusBarStyle(.lightContent)
+        } else {
+            containerView.backgroundColor = UIColor.white
+            statusBarDelegate?.setStatusBarStyle(.default)
         }
     }
     
@@ -177,6 +191,7 @@ class BrowserContainerController: UIViewController {
         } else {
             searchResults = [SearchItem]()
             multiDexController?.engines = engines
+            multiDexController?.searchTerm = bootstrapData.searchTerm
             resultsScrollView.isScrollEnabled = true
             
             var keys = Array(bootstrapData.browserURLs.keys)
@@ -215,6 +230,7 @@ class BrowserContainerController: UIViewController {
         resultsScrollView.setContentOffset(CGPoint(x: (view.bounds.width * CGFloat(index)), y: 0), animated: false)
         multiDexContainerView.isHidden = true
         setNavigation()
+        checkStatusBar()
         HydrationHelper.instance.setShowing(viewState: .browser, forTab: tabIndex)
     }
     
@@ -224,13 +240,16 @@ class BrowserContainerController: UIViewController {
         resultsScrollView.frame = CGRect(x: 0.0, y: containerFrame.height, width: containerFrame.width, height: containerFrame.height - toolBarHeight)
         multiDexContainerView.isHidden = false
         setNavigation()
+        checkStatusBar()
         HydrationHelper.instance.setShowing(viewState: .multiDex, forTab: tabIndex)
     }
     
     @objc func showSearch() {
         HydrationHelper.instance.setShowing(viewState: .homeScreen, forTab: tabIndex)
         homeScreenContainerView.isHidden = false
+        multiDexContainerView.isHidden = true
         setNavigation()
+        checkStatusBar()
         UIView.animate(withDuration: 0.2, animations: { [weak self] in
             self?.homeScreenContainerView.alpha = 1.0
         })
@@ -336,6 +355,8 @@ class BrowserContainerController: UIViewController {
                     
                     multiDexController?.screenShots = [:]
                     multiDexController?.engines = engines
+                    multiDexController?.searchTerm = searchTerm!
+                    HydrationHelper.instance.setSearchTerm(forTab: tabIndex, searchTerm: searchTerm!)
                     
                     resultsScrollView.isScrollEnabled = true
                     showMultiDex()
@@ -347,6 +368,7 @@ class BrowserContainerController: UIViewController {
         if searchResults.count > 0 {
             showURLS()
         }
+        checkStatusBar()
     }
     
     override func viewWillLayoutSubviews() {
