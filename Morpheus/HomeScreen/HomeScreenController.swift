@@ -25,7 +25,7 @@ class HomeScreenController: UIViewController {
 
         searchInput.delegate = self
         
-        homeScreenWebView.load(URLRequest(url: URL(string: "https://www.besuperpopular.com/")!))
+//        homeScreenWebView.load(URLRequest(url: URL(string: "https://www.besuperpopular.com/")!))
     }
     
 }

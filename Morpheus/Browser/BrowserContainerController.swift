@@ -83,7 +83,16 @@ class BrowserContainerController: UIViewController {
                    (name: "Google Images", searchURL:"https://google.com/search?q=%%searchTerm%%&tbm=isch"),
                    (name: "Amazon", searchURL: "https://www.amazon.com/s?k=%%searchTerm%%"),
                    (name: "Google News", searchURL:"https://google.com/search?q=%%searchTerm%%&tbm=nws"),
-                   (name: "Reddit", searchURL: "https://www.reddit.com/search/?q=%%searchTerm%%")]
+                   (name: "Reddit", searchURL: "https://www.reddit.com/search/?q=%%searchTerm%%"),
+                   (name: "DuckDuckGo", searchURL: "https://duckduckgo.com/?q=%%searchTerm%%"),
+                   (name: "Bing Images", searchURL: "https://www.bing.com/images/search?q=%%searchTerm%%"),
+                   (name: "Yahoo", searchURL: "https://search.yahoo.com/search?p=%%searchTerm%%"),
+                   (name: "Yandex", searchURL: "https://yandex.com/search/?text=%%searchTerm%%"),
+                   (name: "Twitter", searchURL: "https://twitter.com/search?q=%%searchTerm%%"),
+                   (name: "Bing Video", searchURL: "https://www.bing.com/videos/search?q=%%searchTerm%%"),
+                   (name: "DuckDuckGo Video", searchURL: "https://duckduckgo.com/?q=%%searchTerm%%&iax=videos&ia=videos"),
+                   (name: "Bing News", searchURL: "https://www.bing.com/news/search?q=%%searchTerm%%"),
+                   (name: "Ecosia", searchURL: "https://www.ecosia.org/search?q=%%searchTerm%%")]
     var webViews = [CacheBrowserController]()
     
     
